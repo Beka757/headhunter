@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app.models import Summary, WorkExperience, Education, SummaryWorkExperience, SummaryEducation
+from app.models import Summary, WorkExperience, Education
 
 
 class SummaryAdmin(admin.ModelAdmin):
@@ -21,16 +21,6 @@ class EducationAdmin(admin.ModelAdmin):
     ]
 
 
-class SummaryWorkExperienceAdmin(admin.ModelAdmin):
-    exclude = []
-
-
-class SummaryEducationAdmin(admin.ModelAdmin):
-    exclude = []
-
-
 admin.site.register(Summary, SummaryAdmin)
 admin.site.register(WorkExperience, WorkExperienceAdmin)
 admin.site.register(Education, EducationAdmin)
-admin.site.register(SummaryWorkExperience, SummaryWorkExperienceAdmin)
-admin.site.register(SummaryEducation, SummaryEducationAdmin)
