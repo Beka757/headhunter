@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <br>
+    <br>
+    <h1 class="title">Добавить резюме</h1>
+    <br>
+    <br>
+    <div class="row">
+        <div>
+            <form action="{% url 'create_summary' %}" method="post" class="w-50">
+                {% csrf_token %}
+                {% include 'partials/summary/summary_form.html' with button_text='Сохранить' %}
+            </form>
+        </div>
+        {% include 'partials/summary/work_expirience.html' %}
+        {% include 'partials/summary/education_form.html' %}
+    </div>
+    <script src="{% static 'js/resume_api_script.js' %}"></script>
+{% endblock %}

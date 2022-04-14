@@ -40,11 +40,6 @@ class Summary(models.Model):
         return self.summary_position
 
 
-class SummaryWorkExperience(models.Model):
-    summary = models.ForeignKey('app.Summary', on_delete=models.CASCADE, related_name='summary_work_experience')
-    work_experience = models.ForeignKey('app.WorkExperience', on_delete=models.CASCADE, related_name='work_experience')
-
-
 class WorkExperience(models.Model):
     user = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE,
@@ -58,11 +53,6 @@ class WorkExperience(models.Model):
 
     def __str__(self):
         return self.work_position
-
-
-class SummaryEducation(models.Model):
-    summary = models.ForeignKey('app.Summary', on_delete=models.CASCADE, related_name='summary_education')
-    education = models.ForeignKey('app.Education', on_delete=models.CASCADE, related_name='education')
 
 
 class Education(models.Model):
