@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock title %}
+
+{% block content %}
+
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+
+    <br>
+
+    <h2 class="text-center">Регистрация</h2>
+
+    <br>
+
+    {% include 'common/register_form.html' %}
+    
+    <script src="{% static 'js/register_script.js' %}"></script>
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="d-flex justify-content-center">
 
-        <form action="{% url 'login' %}" enctype="multipart/form-data" method="post" class="w-50">
+        <form action="{% url 'login' %}" enctype="multipart/form-data" method="post" class="w-50" id="loginForm">
             {% csrf_token %}
             
             <div class="mb-3">

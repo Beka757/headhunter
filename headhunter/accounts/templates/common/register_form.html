@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="d-flex justify-content-center">
+
+        <form action="{% url 'register' %}" enctype="multipart/form-data" method="post" class="w-50">
+            {% csrf_token %}
+
+            {% if form.is_company.value %}
+            
+            <div class="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+                <input value="False" type="radio" class="btn-check" name="is_company" id="btnradio1" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="btnradio1">Соискатель</label>
+            
+                <input value="True" type="radio" class="btn-check" name="is_company" id="btnradio2" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="btnradio2">Работадатель</label>
+            </div>
+
+            {% else %}
+
+            <div class="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+                <input value="False" type="radio" class="btn-check" name="is_company" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="btnradio1">Соискатель</label>
+            
+                <input value="True" type="radio" class="btn-check" name="is_company" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="btnradio2">Работадатель</label>
+            </div>
+
+            {% endif %}
+
+            <br>
+            <br>
+            
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Фото профиля</label>
+                <input class="form-control" type="file" name="image" id="formFile" value="{{ form.image.value|default:'' }}">
+                <div class="form-text" style="color: red;">{{ form.image.errors }}</div>
+            </div>
+
+            <br>
+
+            <div class="mb-3">
+                <label for="username" id="usernameLabel" class="form-label">Имя пользователя <span style="color: red;">*</span></label>
+                <input name="username" type="text" id="username" class="form-control" value="{{ form.username.value|default:'' }}" />
+                <div class="form-text" style="color: red;">{{ form.username.errors }}</div>
+            </div>
+            
+            <br>
+
+            <label for="exampleInputEmail1" class="form-label">Email <span style="color: red;">*</span></label>
+            <div class="input-group mb-3">
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ form.email.value|default:'' }}">
+                <span class="input-group-text" id="basic-addon2">@example.com</span>
+            </div>
+            <div class="form-text" style="color: red;">{{ form.email.errors }}</div>
+
+            <br>
+            
+            <label for="telInput" class="form-label">Номер телефона <span style="color: red;">*</span></label>
+            <div class="input-group mb-3">
+                <input type="tel" class="form-control" name="phone" id="telInput" aria-describedby="emailHelp" value="{{ form.phone.value|default:'' }}">
+                <span class="input-group-text" id="basic-addon2">+7...</span>
+            </div>
+            <div class="form-text" style="color: red;">{{ form.phone.errors }}</div>
+
+            <br>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль <span style="color: red;">*</span></label>
+                <input type="password" name="password" class="form-control" id="password">
+                <div class="form-text" style="color: red;">{{ form.password.errors }}</div>
+            </div>
+
+            <br>
+
+            <div class="mb-3">
+                <label for="password_confirm" class="form-label">Повторите пароль <span style="color: red;">*</span></label>
+                <input type="password" name="password_confirm" class="form-control" id="password_confirm">
+                <div class="form-text" style="color: red;">{{ form.password_confirm.errors }}</div>
+            </div>
+            
+            <button type="submit" class="btn btn-secondary">Зарегистрироваться</button>
+        </form>
+
+    </div>
+</div>
