@@ -1,0 +1,35 @@
+{% if work_experiences %}
+    <h4 class="text-muted">Опыт работы</h4>
+{% else %}
+    <h4 class="text-muted">Опыт работы отсуствует</h4>
+{% endif %}
+{% for work_experience in work_experiences %}
+    <div class="card w-100 border-0">
+        <div class="card-body">
+            <div class="d-flex">
+                {% if work_experience.finish_work %}
+                    <div class="d-block w-50">
+                        <p class="card-title">{{ work_experience.start_work|date:'F Y' }}</p>
+                        <p class="card-title">{{ work_experience.finish_work|date:'F Y' }}</p>
+                    </div>
+                    <div class="w-75">
+                        <h5 class="card-title">{{ work_experience.work_position }}</h5>
+                        <h6 class="card-title">{{ work_experience.company_name }}</h6>
+                        <p class="card-title">{{ work_experience.responsibilities|linebreaksbr }}</p>
+                    </div>
+                {% else %}
+                    <div class="d-block w-50">
+                        <p class="card-title">{{ work_experience.start_work|date:'F Y' }}</p>
+                        <p class="card-title">по настоящее время</p>
+                    </div>
+                    <div class="w-75">
+                        <h5 class="card-title">{{ work_experience.work_position }}</h5>
+                        <h6 class="card-title">{{ work_experience.company_name }}</h6>
+                        <p class="card-title">{{ work_experience.responsibilities|linebreaksbr }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <hr>
+{% endfor %}

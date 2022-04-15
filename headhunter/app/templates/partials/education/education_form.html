@@ -1,0 +1,33 @@
+{% if educations %}
+    <h4 class="text-muted">Образование</h4>
+{% else %}
+    <h4 class="text-muted">Образование отсуствует</h4>
+{% endif %}
+{% for education in educations %}
+    <div class="card w-100 border-0">
+        <div class="card-body">
+            <div class="d-flex">
+                {% if education.finish_education %}
+                    <div class="d-block w-50">
+                        <p class="card-title">{{ education.start_education|date:'F Y' }}</p>
+                        <p class="card-title">{{ education.finish_education|date:'F Y' }}</p>
+                    </div>
+                    <div class="w-75">
+                        <h5 class="card-title">{{ education.educational_center }}</h5>
+                        <h6 class="card-title">{{ education.speciality }}</h6>
+                    </div>
+                {% else %}
+                    <div class="d-block w-50">
+                        <p class="card-title">{{ education.start_education|date:'F Y' }}</p>
+                        <p class="card-title">по настоящее время</p>
+                    </div>
+                    <div class="w-75">
+                        <h5 class="card-title">{{ education.educational_center }}</h5>
+                        <h6 class="card-title">{{ education.speciality }}</h6>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <hr>
+{% endfor %}
