@@ -3,13 +3,11 @@
 
 {% block content %}
     <br>
-    <br>
-    <h1 class="title">Добавить вакансию</h1>
-    <br>
+    <h1 class="title text-center">Добавить вакансию</h1>
     <br>
     <div class="row">
         <div>
-            <form action="{% url 'create_vacancy' %}" method="post" class="w-50">
+            <form action="{% url 'create_vacancy' %}" method="post" class="w-75 m-auto p-3">
                 {% csrf_token %}
                 {% include 'partials/vacancy/vacancy_form.html' with button_text='Сохранить' %}
             </form>
