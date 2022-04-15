@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <h1 style="text-align: center" class="title">{{ title }}</h1>
+    <br>
+    <br>
+    {% if summaries %}
+        {% include 'partials/summary/list_summary_form.html' %}
+    {% endif %}
+    <div class="paginate mt-5">
+        {% if is_paginated %}
+                {% include 'common/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
