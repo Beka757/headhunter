@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from .forms import MyUserRegisterForm
 from django.contrib.auth import login, get_user_model
 
@@ -19,4 +19,12 @@ class RegisterView(CreateView):
 
     def get_success_url(self):
         return reverse('login')
+    
+    
+class UserDetailsView(DetailView):
+    model = get_user_model()
+    template_name = 'user/detail.html'
+    
+    def get_object(self):
+        return self.request.user
 
