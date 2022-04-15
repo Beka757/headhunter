@@ -4,54 +4,70 @@
 {% block content %}
     <br>
     <div>
-        <div style="width: 800px;">
-            <div>
+        <div style="border-radius: 40px" class="card border-secondary p-3 m-auto w-75">
+            <div class="d-flex align-items-center">
                 <div>
-                    <h3 class="card-text mt-5">{{ vacancy.vacancy_position }}</h3>
-                    <p class="mt-4" style="font-size: 25px">{{ vacancy.salary|intcomma }} &#8376; на руки</p>
-                    <h1 style="color: cornflowerblue" class="mt-4">{{ vacancy.user }}</h1>
-                </div>
-            </div>
-            <div>
-                <div class="mt-5">
-                    <h5>Категория вакансии</h5>
-                    {% if vacancy.category == 'Information technology' %}
-                        Информационные технологии
-                    {% elif vacancy.category == 'Medicine' %}
-                        Медецина
-                    {% elif vacancy.category == 'Marketing' %}
-                        Маркетинг
-                    {% elif vacancy.category == 'Sales' %}
-                        Продажи
-                    {% elif vacancy.category == 'Production' %}
-                        Производство
-                    {% elif vacancy.category == 'Insurance' %}
-                        Страхование
-                    {% endif %}
-                </div>
-            </div>
-            <div class="mt-5">
-                <h5>Требуемый опыт работы</h5>
-                <div class="d-flex" style="font-size: 18px">
-                    <p class="d-block" style="width: 40px">от {{ vacancy.work_experience_from }}</p>
-                    {% if vacancy.work_experience_to == 1 %}
-                        <p>до {{ vacancy.work_experience_to }} года</p>
+                    {% if user.image %}
+                        <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{{ user.image.url }}" class="card-img" alt="...">
                     {% else %}
-                        <p>до {{ vacancy.work_experience_to }} лет</p>
+                        <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{% static 'img/user.png' %}" class="card-img" alt="...">
                     {% endif %}
                 </div>
+                <div class="ms-5">
+                    <h1 class="card-text">{{ vacancy.user.username }}</h1>
+                    <hr style="margin: 10px 0 !important;">
+                    <div class="mt-0">
+                        <h6 class="text-muted fs-4">Контактые данные</h6>
+                        <div class="fs-6">
+                            <p class="card-text m-0">{{ vacancy.user.phone }}</p>
+                            <p class="card-text">{{ vacancy.user.email }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mt-5 w-75">
-                <h5>Обязанности</h5>
-                {{ vacancy.description|linebreaksbr }}
+            <div class="card-body">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="w-50 mb-4">
+                        <h4>Должность</h4>
+                        <h6>{{ vacancy.vacancy_position }}</h6>
+                    </div>
+                    <div class="w-50 mb-4">
+                        <h4>Требуемый опыт работы</h4>
+                        <div class="d-flex">
+                            <p>от {{ vacancy.work_experience_from }} д</p>
+                            {% if vacancy.work_experience_to == 1 %}
+                                <p>о {{ vacancy.work_experience_to }} года</p>
+                            {% else %}
+                                <p>о {{ vacancy.work_experience_to }} лет</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="w-50 mb-4">
+                        <h4>Категория вакансии</h4>
+                        {% if vacancy.category == 'Information technology' %}
+                            Информационные технологии
+                        {% elif vacancy.category == 'Medicine' %}
+                            Медецина
+                        {% elif vacancy.category == 'Marketing' %}
+                            Маркетинг
+                        {% elif vacancy.category == 'Sales' %}
+                            Продажи
+                        {% elif vacancy.category == 'Production' %}
+                            Производство
+                        {% elif vacancy.category == 'Insurance' %}
+                            Страхование
+                        {% endif %}
+                    </div>
+                    <div class="w-50 mb-4">
+                        <h4>Зароботная плата</h4>
+                        <p class="card-text">{{ vacancy.salary|intcomma }} &#8376; на руки</p>
+                    </div>
+                    <div class="w-50">
+                        <h5>Обязанности</h5>
+                        {{ vacancy.description|linebreaksbr }}
+                    </div>
+                </div>
             </div>
-            <div class="mt-5">
-                <h5>Контактная информация</h5>
-                <p class="m-0">{{ vacancy.user }}</p>
-                <p class="m-0">{{ vacancy.user.phone }}</p>
-                <p class="m-0">{{ vacancy.user.email }}</p>
-            </div>
-            <div class="mt-5"></div>
         </div>
     </div>
 {% endblock %}

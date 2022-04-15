@@ -2,13 +2,13 @@
 <div>
     {% for summary in summaries %}
         <div class="col mt-4">
-            <div class="card">
+            <div class="card border-secondary p-1" style="border-radius: 20px;">
                 <div class="card-body">
                     <h5 class="card-title">{{ summary.summary_position }}</h5>
                     <p class="card-text">{{ summary.updated_at }}</p>
-                    <a class="btn btn-secondary" href="#">Обновить</a>
-                    <a class="btn btn-secondary" href="#">Редактировать</a>
                     {% if request.user == summary.user %}
+                        <a class="btn btn-secondary" href="#">Обновить</a>
+                        <a class="btn btn-secondary" href="#">Редактировать</a>
                         <a class="btn btn-secondary" href="{% url 'detail_summary' summary.pk %}">Просмотр</a>
                     {% endif %}
                 </div>

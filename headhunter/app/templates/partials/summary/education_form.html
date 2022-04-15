@@ -1,5 +1,7 @@
 <div id="education_div" class="w-50 d-none">
-    <hr style="margin: 40px 0">
+    <hr style="margin: 20px 0">
+    <h3>Добавить образование</h3>
+    <br>
     <form id="education_form" method="post">
         {% csrf_token %}
         <div class="mb-3">
@@ -22,7 +24,6 @@
             <input name="finish_education" type="date"
                    id="finish_education" class="form-control"/>
         </div>
-        <br>
         <button class="btn btn-secondary" type="submit">Добавить</button>
     </form>
 </div>
