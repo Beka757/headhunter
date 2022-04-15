@@ -67,3 +67,27 @@ class Education(models.Model):
 
     def __str__(self):
         return self.speciality
+
+
+class Vacancy(models.Model):
+    user = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE,
+        related_name='vacancy_user', verbose_name='Пользователь'
+    )
+    vacancy_position = models.CharField(max_length=100, verbose_name='Должность')
+    category = models.CharField(max_length=50, choices=CATEGORY_VACANCY, verbose_name='Категория вакансии')
+    salary = models.IntegerField(
+        validators=[MaxValueValidator(1000000), MinValueValidator(1)],
+        verbose_name='Заработная плата'
+    )
+    description = models.TextField(max_length=3000, verbose_name='Описание вакансии')
+    work_experience_from = models.IntegerField(
+        validators=[MaxValueValidator(9), MinValueValidator(0)],
+        verbose_name='Заработная плата от'
+    )
+    work_experience_to = models.IntegerField(
+        validators=[MaxValueValidator(10), MinValueValidator(1)],
+        verbose_name='Заработная плата до'
+    )
+    publication = models.BooleanField(verbose_name='Публикация вакансии')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
