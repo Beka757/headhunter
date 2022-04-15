@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <br>
+    <br>
+    <h1 class="title">Добавить вакансию</h1>
+    <br>
+    <br>
+    <div class="row">
+        <div>
+            <form action="{% url 'create_vacancy' %}" method="post" class="w-50">
+                {% csrf_token %}
+                {% include 'partials/vacancy/vacancy_form.html' with button_text='Сохранить' %}
+            </form>
+        </div>
+    </div>
+{% endblock %}
