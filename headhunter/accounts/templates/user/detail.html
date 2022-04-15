@@ -6,7 +6,9 @@
 
 
 {% block content %}
+    
     <br>
+    
     <div>
         <div class="w-75">
             <div class="d-flex align-items-center">
@@ -34,4 +36,16 @@
             </div>
         </div>
     </div>
+
+    <br>
+
+    {% if summaries %}
+        {% include 'partials/summary/list_summary.html' with title_text="Ваши резюме" %}
+    {% endif %}
+    <div class="paginate mt-5">
+        {% if is_paginated %}
+                {% include 'common/pagination.html' %}
+        {% endif %}
+    </div>
+    
 {% endblock %}

@@ -1,12 +1,8 @@
-from django.views.generic import TemplateView, CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView
 from django.urls import reverse
 from app.forms import SummaryForm
 from app.models import Summary, CATEGORY_VACANCY
 from django.contrib.auth.mixins import UserPassesTestMixin
-
-
-class TestHomeView(TemplateView):
-    template_name = 'home.html'
 
 
 class CreateSummaryView(CreateView):
@@ -39,5 +35,14 @@ class ListSummaryView(ListView):
     model = Summary
     context_object_name = 'summaries'
     ordering = ['-updated_at']
-    paginate_by = 10
+    paginate_by = 20
     paginate_orphans = 1
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['summaries'] = self.get_objects().filter(publication=1)
+        
+        return context
+    
+    def get_objects(self):
+        return self.model.objects.all()
