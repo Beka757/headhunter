@@ -1,4 +1,4 @@
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from app.models import Vacancy, CATEGORY_VACANCY
 from app.forms import VacancyForm
 from django.urls import reverse
@@ -16,3 +16,9 @@ class VacancyCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('home')
+
+
+class DetailVacancyView(DetailView):
+    model = Vacancy
+    template_name = 'vacancy/detail_vacancy.html'
+    context_object_name = 'vacancy'

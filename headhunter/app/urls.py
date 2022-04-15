@@ -1,7 +1,7 @@
 from django.urls import path
 from .views.resume_views import TestHomeView, CreateSummaryView
 
-from .views.vacancy_views import VacancyCreateView
+from .views.vacancy_views import VacancyCreateView, DetailVacancyView
 
 resume_url = [
     path('', TestHomeView.as_view(), name='home'),
@@ -9,7 +9,8 @@ resume_url = [
 ]
 
 vacancy_url = [
-    path('vacancy/create', VacancyCreateView.as_view(), name='create_vacancy')
+    path('vacancy/create', VacancyCreateView.as_view(), name='create_vacancy'),
+    path('vacancy/<int:pk>/', DetailVacancyView.as_view(), name='detail_vacancy')
 ]
 
 urlpatterns = []

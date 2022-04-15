@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <br>
+    <div>
+        <div style="width: 800px;">
+            <div>
+                <div>
+                    <h3 class="card-text mt-5">{{ vacancy.vacancy_position }}</h3>
+                    <p class="mt-4" style="font-size: 25px">{{ vacancy.salary|intcomma }} &#8376; на руки</p>
+                    <h1 style="color: cornflowerblue" class="mt-4">{{ vacancy.user }}</h1>
+                </div>
+            </div>
+            <div>
+                <div class="mt-5">
+                    <h5>Категория вакансии</h5>
+                    {% if vacancy.category == 'Information technology' %}
+                        Информационные технологии
+                    {% elif vacancy.category == 'Medicine' %}
+                        Медецина
+                    {% elif vacancy.category == 'Marketing' %}
+                        Маркетинг
+                    {% elif vacancy.category == 'Sales' %}
+                        Продажи
+                    {% elif vacancy.category == 'Production' %}
+                        Производство
+                    {% elif vacancy.category == 'Insurance' %}
+                        Страхование
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mt-5">
+                <h5>Требуемый опыт работы</h5>
+                <div class="d-flex" style="font-size: 18px">
+                    <p class="d-block" style="width: 40px">от {{ vacancy.work_experience_from }}</p>
+                    {% if vacancy.work_experience_to == 1 %}
+                        <p>до {{ vacancy.work_experience_to }} года</p>
+                    {% else %}
+                        <p>до {{ vacancy.work_experience_to }} лет</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mt-5 w-75">
+                <h5>Обязанности</h5>
+                {{ vacancy.description|linebreaksbr }}
+            </div>
+            <div class="mt-5">
+                <h5>Контактная информация</h5>
+                <p class="m-0">{{ vacancy.user }}</p>
+                <p class="m-0">{{ vacancy.user.phone }}</p>
+                <p class="m-0">{{ vacancy.user.email }}</p>
+            </div>
+            <div class="mt-5"></div>
+        </div>
+    </div>
+{% endblock %}
