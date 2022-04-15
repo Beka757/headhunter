@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <br>
     <h1 style="text-align: center" class="title">{{ title }}</h1>
     <br>
-    <br>
     {% if summaries %}
-        {% include 'partials/summary/list_summary_form.html' %}
+        {% include 'partials/summary/list_summary.html' with title_text="Список резюме" %}
     {% endif %}
     <div class="paginate mt-5">
         {% if is_paginated %}
