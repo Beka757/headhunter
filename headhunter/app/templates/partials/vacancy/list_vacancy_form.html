@@ -1,10 +1,11 @@
 {% load humanize %}
+<h1 style="text-align: center">{{ title_text }}</h1>
 <div class="d-flex justify-content-between">
     <div class="w-75">
         {% for vacancy in vacancies %}
             <a style="text-decoration: none; color: black" href="{% url 'detail_vacancy' vacancy.pk %}">
                 <div class="col mt-4">
-                    <div class="card">
+                    <div class="card border-secondary" style="border-radius: 20px">
                         <div class="card-body">
                             <h5 class="card-title">{{ vacancy.vacancy_position }}</h5>
                             <p class="card-text">{{ vacancy.updated_at }}</p>
@@ -16,7 +17,7 @@
     </div>
     <div class="ps-5">
         <h5>Поиск вакансии</h5>
-        <form action="{% url 'search' %}">
+        <form action="{% url 'vacancy_search' %}">
             <label>
                 <input type="text" class="form-control" name="query">
             </label>

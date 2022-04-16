@@ -20,7 +20,7 @@ class VacancyCreateView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('home')
+        return reverse('detail_vacancy', kwargs={'pk': self.object.id})
 
 
 class DetailVacancyView(LoginRequiredMixin, DetailView):
@@ -68,7 +68,7 @@ class VacancyCategoryView(TemplateView):
         return super().get_context_data(**kwargs)
 
 
-class SearchView(View):
+class VacancySearchView(View):
     def get(self, request, *args, **kwargs):
         search_param = request.GET.get('query')
         categories = CATEGORY_VACANCY

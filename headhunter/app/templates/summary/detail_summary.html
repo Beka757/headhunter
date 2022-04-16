@@ -7,14 +7,14 @@
         <div style="border-radius: 40px" class="card border-secondary p-3 m-auto w-75">
             <div class="d-flex align-items-center">
                 <div>
-                    {% if user.image %}
-                        <img style="width: 250px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{{ user.image.url }}" class="card-img" alt="...">
+                    {% if summary.user.image %}
+                        <img style="width: 280px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{{ summary.user.image.url }}" class="card-img" alt="...">
                     {% else %}
-                        <img style="width: 250px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{% static 'img/user.png' %}" class="card-img" alt="...">
+                        <img style="width: 280px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{% static 'img/user.png' %}" class="card-img" alt="...">
                     {% endif %}
                 </div>
                 <div class="ms-5">
-                    <h1 class="card-text">{{ summary.user.username }}</h1>
+                    <a href="{% url 'user_detail' summary.user.pk %}"><h1 class="card-text">{{ summary.user.username }}</h1></a>
                     <hr style="margin: 10px 0 !important;">
                     <div class="mt-0">
                         <h6 class="text-muted fs-4">Контактые данные</h6>
@@ -41,6 +41,14 @@
                                                          href="{{ summary.linkedin }}"><img
                                     style="width: 22px;" src="{% static "img/linkdein.png" %}" alt="..."></a>
                             </p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        {% if request.user == summary.user %}
+    
+                                <a type="button" href="#" class="btn btn-secondary btn-sm">Обновить</a>
+                                <a type="button" href="#" class="btn btn-secondary btn-sm">Редактировать</a>
+    
                         {% endif %}
                     </div>
                 </div>

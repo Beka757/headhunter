@@ -38,7 +38,10 @@
         <br>
 
         {% if summaries %}
-            {% include 'partials/summary/list_summary.html' with title_text="Ваши резюме" %}
+            {% include 'partials/summary/list_summary.html' with title_text="Резюме пользователя" %}
+        {% endif %}
+        {% if vacancies %}
+            {% include 'partials/vacancy/list_vacancy_form.html' with title_text="Вакансии пользователя" %}
         {% endif %}
         <div class="paginate mt-5">
             {% if is_paginated %}

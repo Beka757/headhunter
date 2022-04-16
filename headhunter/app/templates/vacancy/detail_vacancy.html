@@ -5,22 +5,16 @@
     <br>
     <div>
         <div style="border-radius: 40px" class="card border-secondary p-3 m-auto w-75">
-            <div class="mt-5 d-flex">
+            <div class="d-flex align-items-center">
                 <div>
-                    {% if user.image %}
-                        <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;"
-                             src="{{ user.image.url }}" class="card-img" alt="...">
+                    {% if vacancy.user.image %}
+                        <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{{ vacancy.user.image.url }}" class="card-img" alt="...">
                     {% else %}
-                        <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;"
-                             src="{% static 'img/user.png' %}" class="card-img" alt="...">
-                    {% endif %}
-                    {% if request.user == vacancy.user %}
-                        <a class="btn btn-secondary" href="#">Редактировать</a>
-                        <a class="btn btn-secondary ms-4" href="#">Обновить</a>
+                        <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{% static 'img/user.png' %}" class="card-img" alt="...">
                     {% endif %}
                 </div>
                 <div class="ms-5">
-                    <h1 class="card-text">{{ vacancy.user.username }}</h1>
+                    <a href="{% url 'user_detail' vacancy.user.pk %}"><h1 class="card-text">{{ vacancy.user.username }}</h1></a>
                     <hr style="margin: 10px 0 !important;">
                     <div class="mt-0">
                         <h6 class="text-muted fs-4">Контактые данные</h6>
@@ -28,6 +22,16 @@
                             <p class="card-text m-0">{{ vacancy.user.phone }}</p>
                             <p class="card-text">{{ vacancy.user.email }}</p>
                         </div>
+                    </div>
+                    <hr style="margin: 10px 0 !important;">
+                    <div>
+                        <a type="button" href="#" class="btn btn-secondary btn-sm">Отклинуться</a>
+                        {% if request.user == vacancy.user %}
+
+                            <a type="button" href="#" class="btn btn-secondary btn-sm">Обновить</a>
+                            <a type="button" href="#" class="btn btn-secondary btn-sm">Редактировать</a>
+
+                        {% endif %}
                     </div>
                 </div>
             </div>

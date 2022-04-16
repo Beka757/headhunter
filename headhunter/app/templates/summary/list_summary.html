@@ -5,6 +5,31 @@
     <br>
     {% if summaries %}
         {% include 'partials/summary/list_summary.html' with title_text="Список резюме" %}
+    {% else %}
+        <div class="d-flex justify-content-end">
+            <div>
+                <div class="d-block">
+                    <h5>Поиск резюме</h5>
+                    <form class="w-75" action="{% url 'summary_search' %}">
+                        <label>
+                            <input type="text" class="form-control" name="query">
+                        </label>
+                        <button class="btn btn-secondary mt-2">Найти</button>
+                    </form>
+                </div>
+                <div>
+                    <h5 class="mt-4">Фильтр по категориям</h5>
+                    <ul class="m-0 p-0">
+                        {% for category in categories %}
+                            <li style="list-style-type: none;">
+                                <a style="text-decoration: none"
+                                href="{% url 'vacancy_category' category.0 %}">{{ category.1 }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
     {% endif %}
     <div class="paginate mt-5">
         {% if is_paginated %}
