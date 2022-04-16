@@ -2,7 +2,7 @@ from django.views.generic import CreateView, DetailView, ListView
 from django.urls import reverse
 from app.forms import SummaryForm
 from app.models import Summary, CATEGORY_VACANCY
-from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class CreateSummaryView(CreateView):
@@ -21,13 +21,10 @@ class CreateSummaryView(CreateView):
         return reverse('detail_summary', kwargs={'pk': self.object.pk})
 
 
-class DetailSummaryView(UserPassesTestMixin, DetailView):
+class DetailSummaryView(LoginRequiredMixin, DetailView):
     model = Summary
     template_name = 'summary/detail_summary.html'
     context_object_name = 'summary'
-
-    def test_func(self):
-        return self.request.user == self.get_object().user
 
 
 class ListSummaryView(ListView):
