@@ -40,8 +40,23 @@ workExperienceForm.addEventListener('submit', (e) => {
             workExperience.classList.add('d-none')
 
             $("#work_experience_form")[0].reset();
+
+            let invalidFeedback = $('.work-experience-text')
+
+            for (errorText of invalidFeedback) {
+                errorText.innerText = ''
+            }
         },
-        error: function(status){console.log(status);}
+        error: function(response){
+            errors = JSON.parse(response.responseText)
+
+            let invalidFeedback = $('.work-experience-text')
+
+            invalidFeedback[0].innerText = errors.company_name
+            invalidFeedback[1].innerText = errors.work_position
+            invalidFeedback[2].innerText = errors.responsibilities
+            invalidFeedback[3].innerText = errors.start_work
+        }
         });
     }
     else {
@@ -65,8 +80,23 @@ workExperienceForm.addEventListener('submit', (e) => {
             workExperience.classList.add('d-none')
 
             $("#work_experience_form")[0].reset();
+
+            let invalidFeedback = $('.work-experience-text')
+
+            for (errorText of invalidFeedback) {
+                errorText.innerText = ''
+            }
         },
-        error: function(status){console.log(status);}
+        error: function(response){
+            errors = JSON.parse(response.responseText)
+
+            let invalidFeedback = $('.work-experience-text')
+
+            invalidFeedback[0].innerText = errors.company_name
+            invalidFeedback[1].innerText = errors.work_position
+            invalidFeedback[2].innerText = errors.responsibilities
+            invalidFeedback[3].innerText = errors.start_work
+        }
         });
     }
 });
@@ -101,8 +131,22 @@ educationForm.addEventListener('submit', (e) => {
             workEducation.classList.add('d-none')
 
             $("#education_form")[0].reset();
+
+            let invalidFeedback = $('.education-text')
+
+            for (errorText of invalidFeedback) {
+                errorText.innerText = ''
+            }
         },
-        error: function(status){console.log(status);}
+        error: function(response){
+            errors = JSON.parse(response.responseText)
+
+            let invalidFeedback = $('.education-text')
+
+            invalidFeedback[0].innerText = errors.educational_center
+            invalidFeedback[1].innerText = errors.speciality
+            invalidFeedback[2].innerText = errors.start_education
+        }
         });
     }
     else {
@@ -125,8 +169,22 @@ educationForm.addEventListener('submit', (e) => {
             workEducation.classList.add('d-none')
 
             $("#education_form")[0].reset();
+
+            let invalidFeedback = $('.education-text')
+
+            for (errorText of invalidFeedback) {
+                errorText.innerText = ''
+            }
         },
-        error: function(status){console.log(status);}
+        error: function(response) {
+            errors = JSON.parse(response.responseText)
+
+            let invalidFeedback = $('.education-text')
+
+            invalidFeedback[0].innerText = errors.educational_center
+            invalidFeedback[1].innerText = errors.speciality
+            invalidFeedback[2].innerText = errors.start_education
+        }
         });
     }
 })
