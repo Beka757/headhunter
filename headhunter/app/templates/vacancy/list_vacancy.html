@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    {% if title == 'Information technology' %}
+        <h2 style="text-align: center">Информационные технологии</h2>
+    {% elif title == 'Medicine' %}
+        <h2 style="text-align: center">Медецина</h2>
+    {% elif title == 'Marketing' %}
+        <h2 style="text-align: center">Маркетинг</h2>
+    {% elif title == 'Sales' %}
+        <h2 style="text-align: center">Продажи</h2>
+    {% elif title == 'Production' %}
+        <h2 style="text-align: center">Производство</h2>
+    {% elif title == 'Insurance' %}
+        <h2 style="text-align: center">Страхование</h2>
+    {% else %}
+        <h2 style="text-align: center">{{ title }}</h2>
+    {% endif %}
+    <br>
+    <br>
+    {% if vacancies %}
+        {% include 'partials/vacancy/list_vacancy_form.html' %}
+    {% else %}
+        <div class="d-flex justify-content-end">
+            <div>
+                <div class="d-block">
+                    <h5>Поиск вакансии</h5>
+                    <form class="w-75" action="{% url 'search' %}">
+                        <label>
+                            <input type="text" class="form-control" name="query">
+                        </label>
+                        <button class="btn btn-secondary mt-2">Найти</button>
+                    </form>
+                </div>
+                <div>
+                    <h5 class="mt-4">Фильтр по категориям</h5>
+                    <ul class="m-0 p-0">
+                        {% for category in categories %}
+                            <li style="list-style-type: none;">
+                                <a style="text-decoration: none"
+                                   href="{% url 'vacancy_category' category.0 %}">{{ category.1 }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="paginate mt-5">
+        {% if is_paginated %}
+            {% include 'common/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}

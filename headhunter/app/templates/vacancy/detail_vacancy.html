@@ -8,7 +8,12 @@
             <div>
                 <div>
                     <h3 class="card-text mt-5">{{ vacancy.vacancy_position }}</h3>
-                    <p class="mt-4" style="font-size: 25px">{{ vacancy.salary|intcomma }} &#8376; на руки</p>
+                    <div class="d-flex">
+                        <p class="mt-4" style="font-size: 25px">{{ vacancy.salary|intcomma }} &#8376; на руки</p>
+                        <div class="mt-4 ms-4">
+                            <button class="btn btn-info" type="button">Откликнуться</button>
+                        </div>
+                    </div>
                     <h1 style="color: cornflowerblue" class="mt-4">{{ vacancy.user }}</h1>
                 </div>
             </div>
@@ -40,6 +45,10 @@
                         <p>до {{ vacancy.work_experience_to }} лет</p>
                     {% endif %}
                 </div>
+                {% if request.user == vacancy.user %}
+                    <a class="btn btn-secondary" href="#">Редактировать</a>
+                    <a class="btn btn-secondary ms-4" href="#">Обновить</a>
+                {% endif %}
             </div>
             <div class="mt-5 w-75">
                 <h5>Обязанности</h5>
