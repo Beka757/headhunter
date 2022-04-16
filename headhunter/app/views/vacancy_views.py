@@ -3,10 +3,10 @@ from app.models import Vacancy, CATEGORY_VACANCY
 from app.forms import VacancyForm
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Q
+from django.core.paginator import Paginator
 from django.views import View
 from django.shortcuts import render
-from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 class VacancyCreateView(CreateView):
@@ -39,7 +39,13 @@ class ListVacancyView(ListView):
     paginate_related_orphans = 0
 
     def get_context_data(self, **kwargs):
-        vacancies = Vacancy.objects.filter(publication='True').order_by('-updated_at')
+        sort_by = self.request.GET.get("sort", "l2h")
+        if sort_by == "l2h":
+            vacancies = Vacancy.objects.filter(publication='True').order_by("salary")
+        elif sort_by == "h2l":
+            vacancies = Vacancy.objects.filter(publication='True').order_by("-salary")
+        else:
+            vacancies = Vacancy.objects.filter(publication='True').order_by('-updated_at')
         paginator = Paginator(
             vacancies, self.paginate_related_by,
             self.paginate_related_orphans
@@ -74,5 +80,8 @@ class VacancySearchView(View):
         categories = CATEGORY_VACANCY
         result = Vacancy.objects.filter(
             Q(vacancy_position__icontains=search_param, publication='True')
-        )
-        return render(request, 'vacancy/list_vacancy.html', {'vacancies': result, 'categories': categories})
+        ).order_by('-updated_at')
+        return render(request, 'vacancy/list_vacancy.html', {
+            'vacancies': result,
+            'categories': categories
+        })

@@ -20,28 +20,73 @@
     <br>
     <br>
     {% if vacancies %}
-        {% include 'partials/vacancy/list_vacancy_form.html' %}
-    {% else %}
-        <div class="d-flex justify-content-end">
+        <div class="d-flex">
+            <div class="w-100">
+                {% include 'partials/vacancy/list_vacancy_form.html' %}
+            </div>
             <div>
-                <div class="d-block">
-                    <h5>Поиск вакансии</h5>
-                    <form class="w-75" action="{% url 'vacancy_search' %}">
+                <div class="mt-4 ms-5">
+                    <form action="{% url 'vacancy_search' %}">
                         <label>
-                            <input type="text" class="form-control" name="query">
+                            <input placeholder="Поиск вакансии" type="text" class="form-control" name="query">
                         </label>
                         <button class="btn btn-secondary mt-2">Найти</button>
                     </form>
                 </div>
-                <div>
+                <div class="ps-5">
                     <h5 class="mt-4">Фильтр по категориям</h5>
                     <ul class="m-0 p-0">
                         {% for category in categories %}
-                            <li style="list-style-type: none;">
+                            <li style="list-style-type: none">
                                 <a style="text-decoration: none"
                                    href="{% url 'vacancy_category' category.0 %}">{{ category.1 }}</a>
                             </li>
                         {% endfor %}
+                    </ul>
+                </div>
+                <div class="ms-3">
+                    <h5 class="mt-4 ms-4">Сортировать по зарплате</h5>
+                    <ul>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=h2l">От
+                            высокого к меньшему</a></li>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=l2h">От
+                            меньшего к высокому</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="d-flex">
+            <div class="w-100">
+                <h5 class="mt-4" style="padding-left: 450px">По вашему запросу вакансии не найдены</h5>
+            </div>
+            <div>
+                <div class="mt-4 ms-5">
+                    <form action="{% url 'vacancy_search' %}">
+                        <label>
+                            <input placeholder="Поиск вакансии" type="text" class="form-control" name="query">
+                        </label>
+                        <button class="btn btn-secondary mt-2">Найти</button>
+                    </form>
+                </div>
+                <div class="ps-5">
+                    <h5 class="mt-4">Фильтр по категориям</h5>
+                    <ul class="m-0 p-0">
+                        {% for category in categories %}
+                            <li style="list-style-type: none">
+                                <a style="text-decoration: none"
+                                   href="{% url 'vacancy_category' category.0 %}">{{ category.1 }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="ms-3">
+                    <h5 class="mt-4 ms-4">Сортировать по зарплате</h5>
+                    <ul>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=h2l">От
+                            высокого к меньшему</a></li>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=l2h">От
+                            меньшего к высокому</a></li>
                     </ul>
                 </div>
             </div>

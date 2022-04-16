@@ -1,6 +1,5 @@
-<h1 style="text-align: center">{{ title_text }}</h1>
 <div class="d-flex justify-content-between">
-    <div class="w-75">
+    <div class="w-100">
         {% for summary in summaries %}
             <a href="{% url 'detail_summary' summary.pk %}" style="text-decoration: none; color: black;" class="d-block summary-link">
                 <div class="col mt-4">
@@ -13,22 +12,5 @@
                 </div>
             </a>    
         {% endfor %}
-    </div>
-    <div class="ps-5">
-        <h5>Поиск вакансии</h5>
-        <form action="{% url 'summary_search' %}">
-            <label>
-                <input type="text" class="form-control" name="query">
-            </label>
-            <button class="btn btn-secondary mt-2">Найти</button>
-        </form>
-        <h5 class="mt-4">Фильтр по категориям</h5>
-        <ul class="m-0 p-0">
-            {% for category in categories %}
-                <li style="list-style-type: none">
-                    <a style="text-decoration: none" href="{% url 'vacancy_category' category.0 %}">{{ category.1 }}</a>
-                </li>
-            {% endfor %}
-        </ul>
     </div>
 </div>

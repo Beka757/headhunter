@@ -1,31 +1,92 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 style="text-align: center" class="title">{{ title }}</h1>
+    <br>
+    {% if title == 'Information technology' %}
+        <h2 style="text-align: center">Информационные технологии</h2>
+    {% elif title == 'Medicine' %}
+        <h2 style="text-align: center">Медецина</h2>
+    {% elif title == 'Marketing' %}
+        <h2 style="text-align: center">Маркетинг</h2>
+    {% elif title == 'Sales' %}
+        <h2 style="text-align: center">Продажи</h2>
+    {% elif title == 'Production' %}
+        <h2 style="text-align: center">Производство</h2>
+    {% elif title == 'Insurance' %}
+        <h2 style="text-align: center">Страхование</h2>
+    {% else %}
+        <h2 style="text-align: center">{{ title }}</h2>
+    {% endif %}
+    <br>
     <br>
     {% if summaries %}
-        {% include 'partials/summary/list_summary.html' with title_text="Список резюме" %}
-    {% else %}
-        <div class="d-flex justify-content-end">
+        <div class="d-flex">
+            <div class="w-100">
+                {% include 'partials/summary/list_summary.html' with title_text="Список резюме" %}
+            </div>
             <div>
-                <div class="d-block">
-                    <h5>Поиск резюме</h5>
-                    <form class="w-75" action="{% url 'summary_search' %}">
+                <div class="mt-4 ms-5">
+                    <form action="{% url 'summary_search' %}">
                         <label>
-                            <input type="text" class="form-control" name="query">
+                            <input placeholder="Поиск резюме" type="text" class="form-control" name="query">
                         </label>
                         <button class="btn btn-secondary mt-2">Найти</button>
                     </form>
                 </div>
-                <div>
+                <div class="ps-5">
                     <h5 class="mt-4">Фильтр по категориям</h5>
                     <ul class="m-0 p-0">
                         {% for category in categories %}
-                            <li style="list-style-type: none;">
+                            <li style="list-style-type: none">
                                 <a style="text-decoration: none"
-                                href="{% url 'vacancy_category' category.0 %}">{{ category.1 }}</a>
+                                   href="{% url 'summary_category' category.0 %}">{{ category.1 }}</a>
                             </li>
                         {% endfor %}
+                    </ul>
+                </div>
+                <div class="ms-3">
+                    <h5 class="mt-4 ms-4">Сортировать по зарплате</h5>
+                    <ul>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=h2l">От
+                            высокого к меньшему</a></li>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=l2h">От
+                            меньшего к высокому</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="d-flex">
+            <div class="w-100">
+                <h5 class="mt-4" style="padding-left: 450px">По вашему запросу резюме не найдены</h5>
+            </div>
+            <div>
+                <div class="mt-4 ms-5">
+                    <form action="{% url 'summary_search' %}">
+                        <label>
+                            <input placeholder="Поиск резюме" type="text" class="form-control" name="query">
+                        </label>
+                        <button class="btn btn-secondary mt-2">Найти</button>
+                    </form>
+                </div>
+                <div class="ps-5">
+                    <h5 class="mt-4">Фильтр по категориям</h5>
+                    <ul class="m-0 p-0">
+                        {% for category in categories %}
+                            <li style="list-style-type: none">
+                                <a style="text-decoration: none"
+                                   href="{% url 'summary_category' category.0 %}">{{ category.1 }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="ms-3">
+                    <h5 class="mt-4 ms-4">Сортировать по зарплате</h5>
+                    <ul>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=h2l">От
+                            высокого к меньшему</a></li>
+                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=l2h">От
+                            меньшего к высокому</a></li>
                     </ul>
                 </div>
             </div>
@@ -33,7 +94,7 @@
     {% endif %}
     <div class="paginate mt-5">
         {% if is_paginated %}
-                {% include 'common/pagination.html' %}
+            {% include 'common/pagination.html' %}
         {% endif %}
     </div>
 {% endblock %}

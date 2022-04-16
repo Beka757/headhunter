@@ -1,12 +1,13 @@
-from django.shortcuts import render
-from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, TemplateView
 from django.urls import reverse
 from app.forms import SummaryForm
 from app.models import Summary, CATEGORY_VACANCY
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
+from django.views import View
+from django.shortcuts import render
 from django.db.models import Q
+
 
 class CreateSummaryView(CreateView):
     model = Summary
@@ -39,7 +40,13 @@ class ListSummaryView(ListView):
     paginate_related_orphans = 0
     
     def get_context_data(self, **kwargs):
-        summaries = self.get_objects().filter(publication=1).order_by('-updated_at')
+        sort_by = self.request.GET.get("sort", "l2h")
+        if sort_by == "l2h":
+            summaries = Summary.objects.filter(publication='True').order_by("salary")
+        elif sort_by == "h2l":
+            summaries = Summary.objects.filter(publication='True').order_by("-salary")
+        else:
+            summaries = Summary.objects.filter(publication='True').order_by('-updated_at')
         paginator = Paginator(
             summaries, self.paginate_related_by,
             self.paginate_related_orphans
@@ -47,14 +54,17 @@ class ListSummaryView(ListView):
         page_number = self.request.GET.get('page', 1)
         page = paginator.get_page(page_number)
         kwargs['page_obj'] = page
+        kwargs['title'] = 'Список резюме'
         kwargs['summaries'] = page.object_list
         kwargs['is_paginated'] = page.has_other_pages()
+        kwargs['categories'] = CATEGORY_VACANCY
         
         return super().get_context_data(**kwargs)
     
     def get_objects(self):
         return self.model.objects.all()
-    
+
+
 class SummaryCategoryView(TemplateView):
     template_name = 'summary/list_summary.html'
 
@@ -74,6 +84,9 @@ class SummarySearchView(View):
         search_param = request.GET.get('query')
         categories = CATEGORY_VACANCY
         result = Summary.objects.filter(
-            Q(summary_position=search_param, publication='True')
-        )
-        return render(request, 'summary/list_summary.html', {'summaries': result, 'categories': categories})
+            Q(summary_position__icontains=search_param, publication='True')
+        ).order_by('-updated_at')
+        return render(request, 'summary/list_summary.html', {
+            'summaries': result,
+            'categories': categories
+        })
