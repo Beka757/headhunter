@@ -7,12 +7,50 @@
         <div style="border-radius: 40px" class="card border-secondary p-3 m-auto w-75">
             <div class="d-flex align-items-center">
                 <div>
+                    <h3 class="card-text mt-5">{{ vacancy.vacancy_position }}</h3>
+                    <div class="d-flex">
+                        <p class="mt-4" style="font-size: 25px">{{ vacancy.salary|intcomma }} &#8376; на руки</p>
+                        <div class="mt-4 ms-4">
+                            <button class="btn btn-info" type="button">Откликнуться</button>
+                        </div>
+                    </div>
+                    <h1 style="color: cornflowerblue" class="mt-4">{{ vacancy.user }}</h1>
+                </div>
+            </div>
+            <div>
+                <div class="mt-5">
+                    <h5>Категория вакансии</h5>
+                    {% if vacancy.category == 'Information technology' %}
+                        Информационные технологии
+                    {% elif vacancy.category == 'Medicine' %}
+                        Медецина
+                    {% elif vacancy.category == 'Marketing' %}
+                        Маркетинг
+                    {% elif vacancy.category == 'Sales' %}
+                        Продажи
+                    {% elif vacancy.category == 'Production' %}
+                        Производство
+                    {% elif vacancy.category == 'Insurance' %}
+                        Страхование
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mt-5">
+                <h5>Требуемый опыт работы</h5>
+                <div class="d-flex" style="font-size: 18px">
+                    <p class="d-block" style="width: 40px">от {{ vacancy.work_experience_from }}</p>
+                    {% if vacancy.work_experience_to == 1 %}
+                        <p>до {{ vacancy.work_experience_to }} года</p>
                     {% if user.image %}
                         <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{{ user.image.url }}" class="card-img" alt="...">
                     {% else %}
                         <img style="width: 200px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{% static 'img/user.png' %}" class="card-img" alt="...">
                     {% endif %}
                 </div>
+                {% if request.user == vacancy.user %}
+                    <a class="btn btn-secondary" href="#">Редактировать</a>
+                    <a class="btn btn-secondary ms-4" href="#">Обновить</a>
+                {% endif %}
                 <div class="ms-5">
                     <h1 class="card-text">{{ vacancy.user.username }}</h1>
                     <hr style="margin: 10px 0 !important;">

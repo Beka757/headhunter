@@ -22,7 +22,11 @@
                     <div class="d-flex justify-content-between w-100">
                         <div class="d-flex align-items-center">
                             {% if request.user.is_company %}
-                            
+                                <a class="nav-link" id="logoutBtn" href="{% url 'logout' %}">Выйти</a>
+                                <a class="nav-link" href="{% url 'create_summary' %}">Создать резюме</a>
+                                <a class="nav-link" href="{% url 'create_vacancy' %}">Создать вакансию</a>
+                                <a class="nav-link" href="{% url 'list_summary' %}">Список резюме</a>
+                                <a class="nav-link" href="{% url 'list_vacancy' %}">Список вакансии</a>
                                 <a class="nav-link" href="{% url 'create_vacancy' %}">Создать вакансию</a>
                                 <a class="nav-link" href="{% url 'list_summary' %}">Список резюме</a>
 
