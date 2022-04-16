@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
-from django.views.generic import CreateView, ListView
-from .forms import MyUserRegisterForm
+from django.views.generic import CreateView, ListView, UpdateView
+from .forms import MyUserRegisterForm, PasswordUpdateForm, UserUpdateForm
 from django.contrib.auth import get_user_model
 from app.models import Summary, Vacancy
 from django.contrib.auth.views import LoginView
@@ -35,6 +35,12 @@ class UserDetailsView(ListView):
         context['user'] = get_object_or_404(get_user_model(), pk=self.kwargs['pk'])
         context['summaries'] = self.get_summary_objects()
         context['vacancies'] = self.get_vacancy_objects()
+        context['form'] = UserUpdateForm(data={
+            'image': self.request.user.image,
+            'username': self.request.user.username,
+            'email': self.request.user.email,
+            'phone': self.request.user.phone
+        })
         
         return context
     
@@ -51,4 +57,24 @@ class UserDetailsView(ListView):
 class LoginView(LoginView):
     def get_success_url(self):
         return reverse('user_detail', kwargs={'pk': self.request.user.pk})
+    
+    
+class UserUpdateView(UpdateView):
+    model = get_user_model()
+    form_class = UserUpdateForm
+    
+    def get_success_url(self):
+        return reverse('user_detail', kwargs={'pk': self.request.user.pk})
+    
+    
+class UserPasswordUpdateView(UpdateView):
+    model = get_user_model()
+    form_class = PasswordUpdateForm
+
+    def get_object(self, queryset=None):
+        return self.model.objects.get(id=self.request.user.id)
+
+    def get_success_url(self):
+        return reverse('login')
+    
 

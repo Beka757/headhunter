@@ -27,8 +27,8 @@
                         <div class="fs-6">
                             <p class="card-text m-0">{{ user.phone }}</p>
                             <p class="card-text">{{ user.email }}</p>
-                            <a href="#" class="btn btn-secondary btn-sm">Редактировать профиль</a>
-                            <a href="#" class="btn btn-secondary btn-sm">Сменить пароль</a>
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#UpdateUserModal">Редактировать профиль</button>
+                            <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#UpdatePasswordModal">Сменить пароль</a>
                         </div>
                     </div>
                 </div>
@@ -49,5 +49,55 @@
             {% endif %}
         </div>
     </div>
+
+    <div class="modal fade" id="UpdateUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Изменить личную информацию</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                
+                        <form action="{% url 'user_update' request.user.pk %}" enctype="multipart/form-data" method="post" class="w-100">
+                            {% include 'common/update_user_form.html' %}      
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                <button type="submit" class="btn btn-success">Сохранить</button>
+                            </div>
+                        </form>
+                
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="UpdatePasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Изменить пароль</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-center">
+                
+                    <form action="{% url 'user_update_password' request.user.pk %}" enctype="multipart/form-data" method="post" class="w-100">
+                        {% include 'common/update_user_password_form.html' %}      
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-success">Сохранить</button>
+                        </div>
+                    </form>
+            
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
 {% endblock %}
