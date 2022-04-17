@@ -1,6 +1,6 @@
 <div id="education_div" class="w-50 d-none">
     <hr style="margin: 20px 0">
-    <h3>Добавить образование</h3>
+    <h3>{{ title_text|default:'Добавить образование' }}</h3>
     <br>
     <form id="education_form" method="post">
         {% csrf_token %}
@@ -28,6 +28,6 @@
                    id="finish_education" class="form-control"/>
             <div class="form-text text-danger education-text"></div>
         </div>
-        <button class="btn btn-secondary" type="submit">Добавить</button>
+        <button class="btn btn-secondary" type="submit">{{ btn_text|default:'Добавить' }}</button>
     </form>
 </div>

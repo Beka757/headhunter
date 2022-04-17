@@ -1,7 +1,7 @@
 from django.urls import path
 from .views.resume_views import (
     CreateSummaryView, DetailSummaryView,
-    ListSummaryView, SummaryCategoryView, SummarySearchView
+    ListSummaryView, SummaryCategoryView, SummarySearchView, UpdateSummaryView
 )
 
 from .views.vacancy_views import (
@@ -14,7 +14,8 @@ resume_url = [
     path('summary/<int:pk>/', DetailSummaryView.as_view(), name='detail_summary'),
     path('summary/', ListSummaryView.as_view(), name='list_summary'),
     path('summary/<str:category>/', SummaryCategoryView.as_view(), name='summary_category'),
-    path('search/summary/', SummarySearchView.as_view(), name='summary_search')
+    path('search/summary/', SummarySearchView.as_view(), name='summary_search'),
+    path('summary/<int:pk>/update/', UpdateSummaryView.as_view(), name='update_summary')
 ]
 
 vacancy_url = [

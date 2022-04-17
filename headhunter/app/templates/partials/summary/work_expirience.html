@@ -1,6 +1,6 @@
 <div id="work_div" class="w-50 d-none">
     <hr style="margin: 20px 0">
-    <h3>Добавить опыт работы</h3>
+    <h3>{{ title_text|default:'Добавить опыт работы' }}</h3>
     <br>
     <form id="work_experience_form" method="post">
         {% csrf_token %}
@@ -32,8 +32,7 @@
             <input name="finish_work" type="date"
                    id="finish_work" class="form-control"/>
             <div class="form-text text-danger work-experience-text"></div>
-        </div>
-        <br>
-        <button id="work_experience_btn" class="btn btn-secondary" type="submit">Добавить</button>
+        </div>  
+        <button id="work_experience_btn" class="btn btn-secondary" type="submit">{{ btn_text|default:'Добавить' }}</button>
     </form>
 </div>

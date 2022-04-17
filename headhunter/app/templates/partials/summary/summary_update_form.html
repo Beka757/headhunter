@@ -57,9 +57,19 @@
 </div>
 <select multiple name="work_experience" id="work_experience" class="form-select d-none" size="3"
         aria-label="size 3 select example">
+        {% for work_experience in form.work_experience.value %}
+        
+            <option value="{{ work_experience }}" selected></option>
+        
+        {% endfor %}
 </select>
 <select multiple name="education" id="education_work" class="form-select d-none" size="3"
         aria-label="size 3 select example">
+        {% for education in form.education.value %}
+        
+            <option value="{{ education }}" selected></option>
+        
+        {% endfor %}
 </select>
 <div>
     <label for="salary" class="form-label">Опубликовать резюме?</label>
@@ -88,9 +98,4 @@
 <br>
 <br>
 <button type="submit" class="btn btn-secondary">{{ button_text }}</button>
-<hr>
-<div class="d-flex justify-content-between">
-    <button id="experience" class="btn btn-secondary w-50 me-2 mb-0" type="button">Добавить опыт работы</button>
-    <button id="education" class="btn btn-secondary w-50 ms-2 mb-0" type="button">Добавить образование</button>
-</div>
 
