@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<br>
+	<h1 class="title text-center">Редактировать резюме</h1>
+	<br>
+	<div class="w-75 m-auto p-3" id='mainDiv'>
+		<div class="row">
+			<div>
+				<form action="{% url 'create_summary' %}" method="post" class="w-100">
+					{% csrf_token %}
+					{% include 'partials/summary/summary_update_form.html' with button_text='Сохранить' %}
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="{% static 'js/resume_api_update_script.js' %}"></script>
+{% endblock %}

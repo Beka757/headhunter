@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, DetailView, ListView, TemplateView
+from django.views.generic import CreateView, DetailView, ListView, TemplateView, UpdateView
 from django.urls import reverse
 from app.forms import SummaryForm
 from app.models import Summary, CATEGORY_VACANCY
@@ -84,3 +84,14 @@ class SummarySearchView(View):
             'summaries': result,
             'categories': categories
         })
+        
+
+class UpdateSummaryView(UpdateView):
+    template_name = 'summary/update_summary.html'
+    form_class = SummaryForm
+    model = Summary
+    extra_context = {'categories': CATEGORY_VACANCY}
+
+    def get_success_url(self):
+        return reverse('detail_summary', kwargs={'pk': self.object.pk})
+    

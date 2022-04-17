@@ -57,7 +57,7 @@
 
                             <a data-summary-id="{{ summary.pk }}" data-position="{{ summary.summary_position }}"
                                id="button_update" type="button" class="btn btn-secondary btn-sm">Обновить</a>
-                            <a type="button" href="#" class="btn btn-secondary btn-sm">Редактировать</a>
+                            <a type="button" href="{% url 'update_summary' summary.pk %}" class="btn btn-secondary btn-sm">Редактировать</a>
 
                         {% endif %}
                     </div>
