@@ -6,7 +6,7 @@ from .views.resume_views import (
 
 from .views.vacancy_views import (
     VacancyCreateView, DetailVacancyView, ListVacancyView,
-    VacancyCategoryView, VacancySearchView
+    VacancyCategoryView, VacancySearchView, UpdateVacancyView
 )
 
 resume_url = [
@@ -22,7 +22,8 @@ vacancy_url = [
     path('vacancy/<int:pk>/', DetailVacancyView.as_view(), name='detail_vacancy'),
     path('vacancy/', ListVacancyView.as_view(), name='list_vacancy'),
     path('vacancy/<str:category>/', VacancyCategoryView.as_view(), name='vacancy_category'),
-    path('search/vacancy/', VacancySearchView.as_view(), name='vacancy_search')
+    path('search/vacancy/', VacancySearchView.as_view(), name='vacancy_search'),
+    path('vacancy/<int:pk>/update/', UpdateVacancyView.as_view(), name='update_vacancy')
 ]
 
 urlpatterns = []

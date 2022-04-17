@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center" class="mt-5">Редактировать вакансию</h1>
+    <div class="title_border"></div>
+    <br>
+    <br>
+    <form action="{% url 'update_vacancy' vacancy.pk %}" method="post">
+        {% csrf_token %}
+        {% include 'partials/vacancy/vacancy_form.html' with button_text='Сохранить' %}
+    </form>
+{% endblock %}

@@ -8,13 +8,22 @@
             <div class="d-flex align-items-center">
                 <div>
                     {% if summary.user.image %}
-                        <img style="width: 280px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{{ summary.user.image.url }}" class="card-img" alt="...">
+                        <img style="width: 280px; border-radius: 40px; border: 2px solid #8b8b8b;"
+                             src="{{ summary.user.image.url }}" class="card-img" alt="...">
                     {% else %}
-                        <img style="width: 280px; border-radius: 40px; border: 2px solid #8b8b8b;" src="{% static 'img/user.png' %}" class="card-img" alt="...">
+                        <img style="width: 280px; border-radius: 40px; border: 2px solid #8b8b8b;"
+                             src="{% static 'img/user.png' %}" class="card-img" alt="...">
                     {% endif %}
                 </div>
                 <div class="ms-5">
-                    <a href="{% url 'user_detail' summary.user.pk %}"><h1 class="card-text">{{ summary.user.username }}</h1></a>
+                    <div class="d-flex">
+                        <a href="{% url 'user_detail' summary.user.pk %}"><h1
+                                class="card-text">{{ summary.user.username }}</h1></a>
+                        <div class="d-flex mt-3 ms-5">
+                            <p>Последнее обновление</p>
+                            <p id="update_date" class="ms-2">{{ summary.updated_at|date:'d.m.Y, G:i' }}</p>
+                        </div>
+                    </div>
                     <hr style="margin: 10px 0 !important;">
                     <div class="mt-0">
                         <h6 class="text-muted fs-4">Контактые данные</h6>
@@ -45,10 +54,11 @@
                     </div>
                     <div>
                         {% if request.user == summary.user %}
-    
-                                <a type="button" href="#" class="btn btn-secondary btn-sm">Обновить</a>
-                                <a type="button" href="#" class="btn btn-secondary btn-sm">Редактировать</a>
-    
+
+                            <a data-summary-id="{{ summary.pk }}" data-position="{{ summary.summary_position }}"
+                               id="button_update" type="button" class="btn btn-secondary btn-sm">Обновить</a>
+                            <a type="button" href="#" class="btn btn-secondary btn-sm">Редактировать</a>
+
                         {% endif %}
                     </div>
                 </div>
@@ -88,4 +98,5 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/update_summary.js' %}"></script>
 {% endblock %}

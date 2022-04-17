@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import WorkExperience, Education
+from app.models import WorkExperience, Education, Vacancy, Summary
 
 
 class WorkExperienceSerializer(serializers.ModelSerializer):
@@ -20,3 +20,19 @@ class EducationSerializer(serializers.ModelSerializer):
             'speciality', 'start_education', 'finish_education'
         ]
         read_only_fields = ['id', 'user']
+
+
+class VacancySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vacancy
+        fields = [
+            'vacancy_position', 'updated_at'
+        ]
+
+
+class SummarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Summary
+        fields = [
+            'summary_position', 'updated_at'
+        ]
