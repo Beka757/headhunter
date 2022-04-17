@@ -91,3 +91,36 @@ class Vacancy(models.Model):
     )
     publication = models.BooleanField(verbose_name='Публикация вакансии')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
+
+
+class Response(models.Model):
+    applicant = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE,
+        related_name="responses_applicant", verbose_name='Соискатель'
+    )
+    employer = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE,
+        related_name="responses_employer", verbose_name='Работадатель'
+    )
+    summary = models.ForeignKey(
+        Summary, on_delete=models.CASCADE,
+        related_name="responses_summary", verbose_name='Резюме'
+    )
+    vacancy = models.ForeignKey(
+        Vacancy, on_delete=models.CASCADE,
+        related_name="responses_vacancy", verbose_name='Вакансия'
+    )
+    
+    
+class Message(models.Model):
+    user = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE,
+        related_name="messages_user", verbose_name='Пользователь'
+    )
+    response = models.ForeignKey(
+        Response, on_delete=models.CASCADE,
+        related_name="messeges_response", verbose_name='Отклик'
+    )
+    text = models.TextField(max_length=3000, verbose_name='Текст сообщения')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+

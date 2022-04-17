@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import WorkExperience, Education, Vacancy, Summary
+from app.models import WorkExperience, Education, Vacancy, Summary, Message
 
 
 class WorkExperienceSerializer(serializers.ModelSerializer):
@@ -38,6 +38,13 @@ class SummarySerializer(serializers.ModelSerializer):
         ]
 
 
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = ['id', 'user', 'response', 'text', 'created_at']
+        read_only_fields = ['id', 'created_at']
+
+
 class VacancyPublicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vacancy
@@ -48,3 +55,4 @@ class SummaryPublicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Summary
         fields = ['publication']
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card border-secondary mt-5" style="border-radius: 20px;">
+    <div class="card-header">
+        <h3>Чат с работадателем {{ response.employer.username }}</h3>
+    </div>
+    <div class="card-body" style="height: 600px; overflow-y: scroll;">
+        {% for message in messages %}
+        
+            <div class="card border-secondary w-25" style="border-radius: 20px; margin: 20px 0;">
+                <div class="card-header p-0 ps-3">
+                    <h6 class="m-0">{{ message.user.username }}</h6>
+                </div>
+                <div class="card-body p-0 ps-3">
+                    <span style="font-size: 18px">{{ message.text}}</span> <span style="font-size: 10px">{{ message.created_at|date:'H:i  d.m.Y' }}</span>
+                </div>
+            </div>
+        
+        {% endfor %}
+    </div>
+    <div class="card-footer d-flex">
+        <input type="text" placeholder="Введите сообщение" class="form-control" id="messageInput">
+        <button type="button" class="btn btn-secondary ms-2" id="messageSentBtn" data-response-id="{{ response.id }}" data-user-id="{{ request.user.id }}">Написать</button>
+    </div>
+</div>
+
+<script src="{% static 'js/response_chat_api_script.js' %}"></script>
+
+{% endblock content %}
+

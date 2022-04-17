@@ -1,5 +1,9 @@
 from django.contrib import admin
-from app.models import Summary, WorkExperience, Education
+from app.models import (
+    Summary, WorkExperience,
+    Education, Response,
+    Message
+)
 
 
 class SummaryAdmin(admin.ModelAdmin):
@@ -21,6 +25,16 @@ class EducationAdmin(admin.ModelAdmin):
     ]
 
 
+class ResponseAdmin(admin.ModelAdmin):
+    list_display = ['id', 'applicant', 'employer', 'summary', 'vacancy']
+
+
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'response', 'created_at']
+
+
 admin.site.register(Summary, SummaryAdmin)
 admin.site.register(WorkExperience, WorkExperienceAdmin)
 admin.site.register(Education, EducationAdmin)
+admin.site.register(Response, ResponseAdmin)
+admin.site.register(Message, MessageAdmin)
