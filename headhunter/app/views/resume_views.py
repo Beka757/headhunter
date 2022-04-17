@@ -40,13 +40,7 @@ class ListSummaryView(ListView):
     paginate_related_orphans = 0
     
     def get_context_data(self, **kwargs):
-        sort_by = self.request.GET.get("sort", "l2h")
-        if sort_by == "l2h":
-            summaries = Summary.objects.filter(publication='True').order_by("salary")
-        elif sort_by == "h2l":
-            summaries = Summary.objects.filter(publication='True').order_by("-salary")
-        else:
-            summaries = Summary.objects.filter(publication='True').order_by('-updated_at')
+        summaries = Summary.objects.filter(publication='True').order_by('-updated_at')
         paginator = Paginator(
             summaries, self.paginate_related_by,
             self.paginate_related_orphans

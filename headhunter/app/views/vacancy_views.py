@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, DetailView, ListView, TemplateView
+from django.views.generic import CreateView, DetailView, ListView, TemplateView, UpdateView
 from app.models import Vacancy, CATEGORY_VACANCY
 from app.forms import VacancyForm
 from django.urls import reverse
@@ -39,13 +39,7 @@ class ListVacancyView(ListView):
     paginate_related_orphans = 0
 
     def get_context_data(self, **kwargs):
-        sort_by = self.request.GET.get("sort", "l2h")
-        if sort_by == "l2h":
-            vacancies = Vacancy.objects.filter(publication='True').order_by("salary")
-        elif sort_by == "h2l":
-            vacancies = Vacancy.objects.filter(publication='True').order_by("-salary")
-        else:
-            vacancies = Vacancy.objects.filter(publication='True').order_by('-updated_at')
+        vacancies = Vacancy.objects.filter(publication='True').order_by('-updated_at')
         paginator = Paginator(
             vacancies, self.paginate_related_by,
             self.paginate_related_orphans
@@ -85,3 +79,13 @@ class VacancySearchView(View):
             'vacancies': result,
             'categories': categories
         })
+
+
+class UpdateVacancyView(UpdateView):
+    template_name = 'vacancy/update_vacancy.html'
+    form_class = VacancyForm
+    model = Vacancy
+    extra_context = {'categories': CATEGORY_VACANCY}
+
+    def get_success_url(self):
+        return reverse('detail_vacancy', kwargs={'pk': self.object.pk})

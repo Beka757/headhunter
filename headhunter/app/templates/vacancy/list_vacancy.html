@@ -44,15 +44,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="ms-3">
-                    <h5 class="mt-4 ms-4">Сортировать по зарплате</h5>
-                    <ul>
-                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=h2l">От
-                            высокого к меньшему</a></li>
-                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=l2h">От
-                            меньшего к высокому</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     {% else %}
@@ -78,15 +69,6 @@
                                    href="{% url 'vacancy_category' category.0 %}">{{ category.1 }}</a>
                             </li>
                         {% endfor %}
-                    </ul>
-                </div>
-                <div class="ms-3">
-                    <h5 class="mt-4 ms-4">Сортировать по зарплате</h5>
-                    <ul>
-                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=h2l">От
-                            высокого к меньшему</a></li>
-                        <li style="list-style-type: none;" class="filters"><a class="filter_by" href="?sort=l2h">От
-                            меньшего к высокому</a></li>
                     </ul>
                 </div>
             </div>
