@@ -2,18 +2,21 @@ from django.views.generic import CreateView, DetailView, ListView, TemplateView,
 from django.urls import reverse
 from app.forms import SummaryForm
 from app.models import Summary, CATEGORY_VACANCY
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.core.paginator import Paginator
 from django.views import View
 from django.shortcuts import render
 from django.db.models import Q
 
 
-class CreateSummaryView(CreateView):
+class CreateSummaryView(UserPassesTestMixin, CreateView):
     model = Summary
     form_class = SummaryForm
     template_name = 'summary/create_summary.html'
     extra_context = {'categories': CATEGORY_VACANCY}
+
+    def test_func(self):
+        return self.request.user.is_company == 0
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -25,20 +28,26 @@ class CreateSummaryView(CreateView):
         return reverse('detail_summary', kwargs={'pk': self.object.pk})
 
 
-class DetailSummaryView(LoginRequiredMixin, DetailView):
+class DetailSummaryView(UserPassesTestMixin, DetailView):
     model = Summary
     template_name = 'summary/detail_summary.html'
     context_object_name = 'summary'
 
+    def test_func(self):
+        return self.request.user == self.get_object().user or self.request.user.is_company == 1
 
-class ListSummaryView(ListView):
+
+class ListSummaryView(UserPassesTestMixin, ListView):
     template_name = 'summary/list_summary.html'
     model = Summary
     context_object_name = 'summaries'
     ordering = ['-updated_at']
     paginate_related_by = 20
     paginate_related_orphans = 0
-    
+
+    def test_func(self):
+        return self.request.user.is_company == 1
+
     def get_context_data(self, **kwargs):
         summaries = Summary.objects.filter(publication='True').order_by('-updated_at')
         paginator = Paginator(
@@ -86,12 +95,14 @@ class SummarySearchView(View):
         })
         
 
-class UpdateSummaryView(UpdateView):
+class UpdateSummaryView(UserPassesTestMixin, UpdateView):
     template_name = 'summary/update_summary.html'
     form_class = SummaryForm
     model = Summary
     extra_context = {'categories': CATEGORY_VACANCY}
 
+    def test_func(self):
+        return self.request.user == self.get_object().user
+
     def get_success_url(self):
         return reverse('detail_summary', kwargs={'pk': self.object.pk})
-    
