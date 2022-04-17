@@ -1,9 +1,9 @@
 let buttonPublicationFalse = $('#publication_false')[0];
 buttonPublicationFalse.addEventListener('click', (e) => {
     e.preventDefault()
-    let vacancy = $('#publication_false').data('vacancy-id');
+    let summary = $('#publication_false').data('summary-id');
     $.ajax({
-        url: `http://127.0.0.1:8000/api-v1/vacancy/${vacancy}/publication/`,
+        url: `http://127.0.0.1:8000/api-v1/summary/${summary}/publication/`,
         method: 'PATCH',
         headers: {Authorization: "Token " + localStorage.getItem("apiToken")},
         data: JSON.stringify({publication: 'True'}),
@@ -23,9 +23,9 @@ buttonPublicationFalse.addEventListener('click', (e) => {
 let buttonPublicationTrue = $('#publication_true')[0];
 buttonPublicationTrue.addEventListener('click', (e) => {
     e.preventDefault()
-    let vacancy = $('#publication_true').data('vacancy-id');
+    let summary = $('#publication_true').data('summary-id');
     $.ajax({
-        url: `http://127.0.0.1:8000/api-v1/vacancy/${vacancy}/publication/`,
+        url: `http://127.0.0.1:8000/api-v1/summary/${summary}/publication/`,
         method: 'PATCH',
         headers: {Authorization: "Token " + localStorage.getItem("apiToken")},
         data: JSON.stringify({publication: 'False'}),

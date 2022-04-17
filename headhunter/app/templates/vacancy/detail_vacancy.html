@@ -44,7 +44,7 @@
                             <a type="button" href="{% url 'update_vacancy' vacancy.pk %}"
                                class="btn btn-secondary btn-sm">Редактировать</a>
                             {% if vacancy.publication == 1 %}
-                                <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
+                                <a style="display: none" data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
                                    id="publication_false" type="button"
                                    class="btn btn-secondary btn-sm">Публиковать</a>
                                 <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
@@ -54,7 +54,7 @@
                                 <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
                                    id="publication_false" type="button"
                                    class="btn btn-secondary btn-sm">Публиковать</a>
-                                <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
+                                <a style="display: none" data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
                                    id="publication_true" type="button"
                                    class="btn btn-secondary btn-sm">Убрать с публикации</a>
                             {% endif %}

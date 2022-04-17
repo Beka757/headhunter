@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import permissions, status
 from api.serializers import (
     WorkExperienceSerializer, EducationSerializer, VacancySerializer, SummarySerializer,
-    VacancyPublicationSerializer
+    VacancyPublicationSerializer, SummaryPublicationSerializer
 )
 from app.models import Vacancy, Summary
 from rest_framework.generics import get_object_or_404
@@ -104,15 +104,23 @@ class SummaryUpdateView(APIView):
 class VacancyPublicationView(APIView):
     permission_classes = [UserPermission]
 
-    def get(self, request, *args, **kwargs):
-        vacancy = get_object_or_404(Vacancy, pk=self.kwargs.get('pk'))
-        serializer = VacancyPublicationSerializer(vacancy)
-        return Response(serializer.data)
-
     def patch(self, request, *args, **kwargs):
         vacancy = get_object_or_404(Vacancy, pk=self.kwargs.get('pk'))
         data = json.loads(self.request.body)
         serializer = VacancyPublicationSerializer(vacancy, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+
+class SummaryPublicationView(APIView):
+    permission_classes = [UserPermission]
+
+    def patch(self, request, *args, **kwargs):
+        summary = get_object_or_404(Summary, pk=self.kwargs.get('pk'))
+        data = json.loads(self.request.body)
+        serializer = SummaryPublicationSerializer(summary, data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

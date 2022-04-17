@@ -2,7 +2,7 @@ from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
 from .views import (
     LogoutView, WorkExperienceCreateView, EducationCreateView, VacancyUpdateView,
-    SummaryUpdateView, VacancyPublicationView
+    SummaryUpdateView, VacancyPublicationView, SummaryPublicationView
 )
 
 urlpatterns = [
@@ -12,5 +12,6 @@ urlpatterns = [
     path('summary/education/create/', EducationCreateView.as_view()),
     path('vacancy/<int:pk>/update/', VacancyUpdateView.as_view()),
     path('summary/<int:pk>/update/', SummaryUpdateView.as_view()),
-    path('vacancy/<int:pk>/publication/', VacancyPublicationView.as_view())
+    path('vacancy/<int:pk>/publication/', VacancyPublicationView.as_view()),
+    path('summary/<int:pk>/publication/', SummaryPublicationView.as_view())
 ]

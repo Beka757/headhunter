@@ -42,3 +42,9 @@ class VacancyPublicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vacancy
         fields = ['publication']
+
+
+class SummaryPublicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Summary
+        fields = ['publication']
