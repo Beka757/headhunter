@@ -9,7 +9,7 @@ class ResponseCreateView(CreateView):
     form_class = ResponseForm
     
     def get_success_url(self):
-        return reverse('detail_response', kwargs={'pk': self.object.pk``})
+        return reverse('detail_response', kwargs={'pk': self.object.pk})
     
     
 class ResponseListView(ListView):
