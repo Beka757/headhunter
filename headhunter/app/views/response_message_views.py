@@ -8,8 +8,8 @@ class ResponseCreateView(CreateView):
     model = ResponseForm
     form_class = ResponseForm
     
-    # def get_success_url(self):
-    #     return reverse('user_detail', kwargs={'pk': self.request.user.pk})
+    def get_success_url(self):
+        return reverse('detail_response', kwargs={'pk': self.object.pk``})
     
     
 class ResponseListView(ListView):
