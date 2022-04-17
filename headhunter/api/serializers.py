@@ -36,3 +36,9 @@ class SummarySerializer(serializers.ModelSerializer):
         fields = [
             'summary_position', 'updated_at'
         ]
+
+
+class VacancyPublicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vacancy
+        fields = ['publication']

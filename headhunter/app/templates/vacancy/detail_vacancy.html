@@ -34,14 +34,30 @@
                     </div>
                     <hr style="margin: 10px 0 !important;">
                     <div>
-                        <a type="button" href="#" class="btn btn-secondary btn-sm">Отклинуться</a>
+                        {% if request.user != vacancy.user and request.user.is_company == 0 %}
+                            <a type="button" href="#" class="btn btn-secondary btn-sm">Отклинуться</a>
+                        {% endif %}
                         {% if request.user == vacancy.user %}
 
                             <a data-vacancy-id="{{ vacancy.pk }}" data-position="{{ vacancy.vacancy_position }}"
                                id="button_update" type="button" class="btn btn-secondary btn-sm">Обновить</a>
                             <a type="button" href="{% url 'update_vacancy' vacancy.pk %}"
                                class="btn btn-secondary btn-sm">Редактировать</a>
-
+                            {% if vacancy.publication == 1 %}
+                                <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
+                                   id="publication_false" type="button"
+                                   class="btn btn-secondary btn-sm">Публиковать</a>
+                                <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
+                                   id="publication_true" type="button"
+                                   class="btn btn-secondary btn-sm">Убрать с публикации</a>
+                            {% else %}
+                                <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
+                                   id="publication_false" type="button"
+                                   class="btn btn-secondary btn-sm">Публиковать</a>
+                                <a data-vacancy-id="{{ vacancy.pk }}" data-publication="{{ vacancy.publication }}"
+                                   id="publication_true" type="button"
+                                   class="btn btn-secondary btn-sm">Убрать с публикации</a>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>
@@ -92,4 +108,5 @@
         </div>
     </div>
     <script src="{% static 'js/update_vacancy.js' %}"></script>
+    <script src="{% static 'js/vacancy_publication.js' %}"></script>
 {% endblock %}
