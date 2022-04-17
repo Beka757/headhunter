@@ -34,7 +34,9 @@
                     </div>
                     <hr style="margin: 10px 0 !important;">
                     <div>
-                        <a type="button" href="#" class="btn btn-secondary btn-sm">Отклинуться</a>
+                        {% if request.user != vacancy.user and request.user.is_company == 0 %}
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Откликнуться</button>
+                        {% endif %}
                         {% if request.user == vacancy.user %}
 
                             <a data-vacancy-id="{{ vacancy.pk }}" data-position="{{ vacancy.vacancy_position }}"
@@ -89,6 +91,35 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Выберите резюме для отклика</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'create_response' %}" enctype="multipart/form-data" method="post" class="w-100">
+                    {% csrf_token %}
+                    <input type="number" class="d-none" name="applicant" value="{{ request.user.pk }}">    
+                    <input type="number" class="d-none" name="employer" value="{{ vacancy.user.pk }}">
+                    <input type="number" class="d-none" name="vacancy" value="{{ vacancy.pk }}">
+                    <select name="summary" class="form-select mb-3">
+                        <option>Выберите резюме</option>
+                        {% for summary in request.user.summary_user.all %}
+                        
+                            <option value="{{ summary.pk }}">{{ summary.summary_position }} | {{ summary.salary }} &#8376;</option>
+                        
+                        {% endfor %}
+                    </select>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-success">Откликнуться</button>
+                    </div>
+                </form>
+          </div>
         </div>
     </div>
     <script src="{% static 'js/update_vacancy.js' %}"></script>

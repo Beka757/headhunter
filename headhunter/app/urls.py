@@ -9,6 +9,8 @@ from .views.vacancy_views import (
     VacancyCategoryView, VacancySearchView, UpdateVacancyView
 )
 
+from .views.response_message_views import ResponseCreateView, ResponseListView, ResponseDetailView
+
 resume_url = [
     path('summary/create', CreateSummaryView.as_view(), name='create_summary'),
     path('summary/<int:pk>/', DetailSummaryView.as_view(), name='detail_summary'),
@@ -27,7 +29,14 @@ vacancy_url = [
     path('vacancy/<int:pk>/update/', UpdateVacancyView.as_view(), name='update_vacancy')
 ]
 
+responce_url = [
+    path("response/create", ResponseCreateView.as_view(), name="create_response"),
+    path('responce/', ResponseListView.as_view(), name="list_response"),
+    path('responce/<int:pk>/', ResponseDetailView.as_view(), name="detail_response"),
+]
+
 urlpatterns = []
 
 urlpatterns += resume_url
 urlpatterns += vacancy_url
+urlpatterns += responce_url
