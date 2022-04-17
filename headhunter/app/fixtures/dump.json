@@ -1,0 +1,979 @@
+[
+{
+  "model": "app.summary",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "username": "admin",
+    "summary_position": "Оператор добычи нефти и газа",
+    "category": "Production",
+    "salary": 200000,
+    "phone_number": "+77012211184",
+    "email": "admin@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:40:00.077Z",
+    "work_experience": [
+      1,
+      2
+    ],
+    "education": [
+      1
+    ]
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "username": "admin",
+    "summary_position": "Python Django Junior",
+    "category": "Information technology",
+    "salary": 200000,
+    "phone_number": "+77012211184",
+    "email": "admin@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://web.telegram.org/z/",
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T17:44:22.193Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "username": "admin",
+    "summary_position": "Мед брат",
+    "category": "Medicine",
+    "salary": 150000,
+    "phone_number": "+77012211184",
+    "email": "admin@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:45:33.395Z",
+    "work_experience": [],
+    "education": [
+      2
+    ]
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "username": "admin",
+    "summary_position": "Менеджер по продажам",
+    "category": "Sales",
+    "salary": 100000,
+    "phone_number": "+77012211184",
+    "email": "admin@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:48:00.050Z",
+    "work_experience": [
+      3
+    ],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "username": "beka",
+    "summary_position": "Middle Django Developer",
+    "category": "Information technology",
+    "salary": 300000,
+    "phone_number": "+77012211101",
+    "email": "beka1990.30.10@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:50:51.127Z",
+    "work_experience": [],
+    "education": [
+      3
+    ]
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 6,
+  "fields": {
+    "user": 2,
+    "username": "beka",
+    "summary_position": "Python Django Junior",
+    "category": "Information technology",
+    "salary": 200000,
+    "phone_number": "+77012211101",
+    "email": "beka1990.30.10@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:51:37.031Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "username": "beka",
+    "summary_position": "Python Web Developer",
+    "category": "Information technology",
+    "salary": 200000,
+    "phone_number": "+77012211101",
+    "email": "beka1990.30.10@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:53:00.131Z",
+    "work_experience": [],
+    "education": [
+      4
+    ]
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "username": "beka",
+    "summary_position": "Оператор добычи нефти и газа",
+    "category": "Information technology",
+    "salary": 300000,
+    "phone_number": "+77012211101",
+    "email": "beka1990.30.10@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": false,
+    "updated_at": "2022-04-17T17:55:09.281Z",
+    "work_experience": [
+      4,
+      5
+    ],
+    "education": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 9,
+  "fields": {
+    "user": 2,
+    "username": "beka",
+    "summary_position": "Менеджер по продажам",
+    "category": "Insurance",
+    "salary": 150000,
+    "phone_number": "+77012211101",
+    "email": "beka1990.30.10@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:57:40.394Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 10,
+  "fields": {
+    "user": 3,
+    "username": "seka",
+    "summary_position": "Терапевт",
+    "category": "Medicine",
+    "salary": 250000,
+    "phone_number": "+77012211102",
+    "email": "seka@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T17:59:41.538Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 11,
+  "fields": {
+    "user": 3,
+    "username": "seka",
+    "summary_position": "Менеджер по продажам",
+    "category": "Sales",
+    "salary": 120000,
+    "phone_number": "+77012211102",
+    "email": "seka@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T18:01:02.946Z",
+    "work_experience": [
+      6
+    ],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 12,
+  "fields": {
+    "user": 3,
+    "username": "seka",
+    "summary_position": "Работник цеха",
+    "category": "Production",
+    "salary": 100000,
+    "phone_number": "+77012211102",
+    "email": "seka@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": "https://ru-ru.facebook.com/",
+    "linkedin": "https://www.linkedin.com/?_l=ru_RU",
+    "publication": true,
+    "updated_at": "2022-04-17T18:01:51.431Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 13,
+  "fields": {
+    "user": 3,
+    "username": "seka",
+    "summary_position": "Страховой агент",
+    "category": "Insurance",
+    "salary": 200000,
+    "phone_number": "+77012211102",
+    "email": "seka@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:02:19.049Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 14,
+  "fields": {
+    "user": 3,
+    "username": "seka",
+    "summary_position": "Маркетолог",
+    "category": "Marketing",
+    "salary": 300000,
+    "phone_number": "+77012211102",
+    "email": "seka@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:02:55.179Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 15,
+  "fields": {
+    "user": 3,
+    "username": "seka",
+    "summary_position": "Python Django Junior",
+    "category": "Information technology",
+    "salary": 100000,
+    "phone_number": "+77012211102",
+    "email": "seka@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": false,
+    "updated_at": "2022-04-17T18:03:12.543Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 16,
+  "fields": {
+    "user": 4,
+    "username": "dina",
+    "summary_position": "Медсестра",
+    "category": "Medicine",
+    "salary": 100000,
+    "phone_number": "+77012211125",
+    "email": "dina@mail.ru",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:04:18.250Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 17,
+  "fields": {
+    "user": 4,
+    "username": "dina",
+    "summary_position": "Врач общей медицины",
+    "category": "Medicine",
+    "salary": 200000,
+    "phone_number": "+77012211125",
+    "email": "dina@mail.ru",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:05:14.815Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 18,
+  "fields": {
+    "user": 4,
+    "username": "dina",
+    "summary_position": "Хирург",
+    "category": "Medicine",
+    "salary": 550000,
+    "phone_number": "+77012211125",
+    "email": "dina@mail.ru",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:05:39.449Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 19,
+  "fields": {
+    "user": 4,
+    "username": "dina",
+    "summary_position": "Травматолог",
+    "category": "Medicine",
+    "salary": 300000,
+    "phone_number": "+77012211125",
+    "email": "dina@mail.ru",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:06:11.513Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 20,
+  "fields": {
+    "user": 4,
+    "username": "dina",
+    "summary_position": "Врач ЛОР",
+    "category": "Medicine",
+    "salary": 220000,
+    "phone_number": "+77012211125",
+    "email": "dina@mail.ru",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:06:32.901Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 21,
+  "fields": {
+    "user": 4,
+    "username": "dina",
+    "summary_position": "Диетолог",
+    "category": "Medicine",
+    "salary": 400000,
+    "phone_number": "+77012211125",
+    "email": "dina@mail.ru",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:07:25.000Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 22,
+  "fields": {
+    "user": 4,
+    "username": "dina",
+    "summary_position": "Кожвенеролог",
+    "category": "Medicine",
+    "salary": 250000,
+    "phone_number": "+77012211125",
+    "email": "dina@mail.ru",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:08:20.007Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.summary",
+  "pk": 23,
+  "fields": {
+    "user": 1,
+    "username": "admin",
+    "summary_position": "Middle Django Developer",
+    "category": "Information technology",
+    "salary": 350000,
+    "phone_number": "+77012211184",
+    "email": "admin@gmail.com",
+    "telegram": "https://web.telegram.org/z/",
+    "facebook": null,
+    "linkedin": null,
+    "publication": true,
+    "updated_at": "2022-04-17T18:09:11.698Z",
+    "work_experience": [],
+    "education": []
+  }
+},
+{
+  "model": "app.workexperience",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "company_name": "АО Тургай Петролеум",
+    "work_position": "Оператор добычи нефти и газа",
+    "responsibilities": "Ведение  технологического процесса при всех способах добычи газа, газового конденсата, закачки и отбора газа  и обеспечение бесперебойной  работы скважин, установок комплексной подготовки газа, групповых замерных установок, дожимных насосных и компрессорных станций, станций подземного хранение газа и другого технологического оборудования и установок.\n Монтаж, демонтаж, техническое обслуживание и ремонт наземного промыслового  оборудования ,установок, механизмов и коммуникаций.\n3.  Проведение профилактических работ против гидратообразований, отложений парафина, смол, солей и расчет реагентов для проведения этих работ. \n4. Измерение величин различных технологических параметров с помощью контрольно-измерительных приборов, снятие и передача параметров работы скважины, контроль за работой средств автоматики и телемеханики.",
+    "start_work": "2012-10-10",
+    "finish_work": "2014-10-10"
+  }
+},
+{
+  "model": "app.workexperience",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "company_name": "ТОО СП CASPI BITUM",
+    "work_position": "Инженер ПТО",
+    "responsibilities": "Проверяет соответствие объемов строительно-монтажных работ, а также соответсвие конструкций утвержденной проектно-сметной документации, рабочим чертежам, строительным нормам и правилам, стандартам, техническим условиям, нормам охраны труда",
+    "start_work": "2016-10-10",
+    "finish_work": "2018-10-10"
+  }
+},
+{
+  "model": "app.workexperience",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "company_name": "ИП Мырзабеков",
+    "work_position": "Менеджер по продажам",
+    "responsibilities": "подготовка рекламных и демонстрационных материалов;\nпоиск потенциальных клиентов;\nпроведение переговоров, целью которых становится продажа товара или услуг;\nорганизация, проведение и участие в разнообразных рекламных мероприятиях – презентациях, выставках и т.",
+    "start_work": "2022-04-17",
+    "finish_work": null
+  }
+},
+{
+  "model": "app.workexperience",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "company_name": "АО Тургай Петролеум",
+    "work_position": "Оператор добычи нефти и газа",
+    "responsibilities": "Ведение  технологического процесса при всех способах добычи газа, газового конденсата, закачки и отбора газа  и обеспечение бесперебойной  работы скважин, установок комплексной подготовки газа, групповых замерных установок, дожимных насосных и компрессорных станций, станций подземного хранение газа и другого технологического оборудования и установок.\n Монтаж, демонтаж, техническое обслуживание и ремонт наземного промыслового  оборудования ,установок, механизмов и коммуникаций.\n3.  Проведение профилактических работ против гидратообразований, отложений парафина, смол, солей и расчет реагентов для проведения этих работ. \n4. Измерение величин различных технологических параметров с помощью контрольно-измерительных приборов, снятие и передача параметров работы скважины, контроль за работой средств автоматики и телемеханики.",
+    "start_work": "2012-01-01",
+    "finish_work": "2014-01-01"
+  }
+},
+{
+  "model": "app.workexperience",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "company_name": "ТОО СП CASPI BITUM",
+    "work_position": "Инженер ПТО",
+    "responsibilities": "Проверяет соответствие объемов строительно-монтажных работ, а также соответсвие конструкций утвержденной проектно-сметной документации, рабочим чертежам, строительным нормам и правилам, стандартам, техническим условиям, нормам охраны труда.",
+    "start_work": "2016-01-01",
+    "finish_work": "2018-01-01"
+  }
+},
+{
+  "model": "app.workexperience",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "company_name": "Magnum",
+    "work_position": "Менеджер по продажам",
+    "responsibilities": "подготовка рекламных и демонстрационных материалов;\nпоиск потенциальных клиентов;\nпроведение переговоров, целью которых становится продажа товара или услуг;\nорганизация, проведение и участие в разнообразных рекламных мероприятиях – презентациях, выставках и т.",
+    "start_work": "2016-01-01",
+    "finish_work": null
+  }
+},
+{
+  "model": "app.education",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "educational_center": "Казахский национальный университет имени К.И.Сатпаева",
+    "speciality": "Нефтегазовое дело",
+    "start_education": "2008-01-01",
+    "finish_education": "2012-01-01"
+  }
+},
+{
+  "model": "app.education",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "educational_center": "Казахский национальный университет имени К.И.Сатпаева",
+    "speciality": "Нефтегазовое дело",
+    "start_education": "2022-04-17",
+    "finish_education": null
+  }
+},
+{
+  "model": "app.education",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "educational_center": "Аттрактор Скул Алматы",
+    "speciality": "Python Разработчик",
+    "start_education": "2021-03-01",
+    "finish_education": null
+  }
+},
+{
+  "model": "app.education",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "educational_center": "Аттрактор Скул Алматы",
+    "speciality": "Python Разработчик",
+    "start_education": "2021-03-01",
+    "finish_education": null
+  }
+},
+{
+  "model": "app.education",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "educational_center": "Казахский национальный университет имени К.И.Сатпаева",
+    "speciality": "Нефтегазовое дело",
+    "start_education": "2008-01-01",
+    "finish_education": "2012-01-01"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 1,
+  "fields": {
+    "user": 5,
+    "vacancy_position": "Работник склада",
+    "category": "Production",
+    "salary": 120000,
+    "description": "организовывать отпуск, прием товарно-материальных ценностей, проведение погрузочно-разгрузочных работ на складе с соблюдением правил охраны труда, техники безопасности, производственной санитарии и противопожарной защиты; 3.4. организовывать сбор, хранение и своевременный возврат поставщикам оборотной тары; 3.5.",
+    "work_experience_from": 0,
+    "work_experience_to": 1,
+    "publication": true,
+    "updated_at": "2022-04-17T18:13:54.722Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 2,
+  "fields": {
+    "user": 5,
+    "vacancy_position": "Курьер",
+    "category": "Sales",
+    "salary": 200000,
+    "description": "Доставлять по назначению деловые бумаги, пакеты, письма, книги и т. ...\r\nСвоевременно и самостоятельно уточнять местонахождение адресатов, разрабатывать маршруты движения, согласовывать дни и часы приема в организациях-адресатах.",
+    "work_experience_from": 0,
+    "work_experience_to": 1,
+    "publication": true,
+    "updated_at": "2022-04-17T18:14:37.730Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 3,
+  "fields": {
+    "user": 5,
+    "vacancy_position": "Менеджер по продажам",
+    "category": "Sales",
+    "salary": 150000,
+    "description": "подготовка рекламных и демонстрационных материалов;\r\nпоиск потенциальных клиентов;\r\nпроведение переговоров, целью которых становится продажа товара или услуг;\r\nорганизация, проведение и участие в разнообразных рекламных мероприятиях – презентациях, выставках и т.",
+    "work_experience_from": 1,
+    "work_experience_to": 2,
+    "publication": true,
+    "updated_at": "2022-04-17T18:15:39.805Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "vacancy_position": "Кол центр",
+    "category": "Marketing",
+    "salary": 200000,
+    "description": "Хорошая дикция и приятный тембр голоса — клиенты лучше реагируют на четкие ответы, когда понимают оператора с первого раза и нет необходимости повторять или переспрашивать сказанное. Низкий тембр голоса воспринимается на слух лучше и вызывает больше доверия у собеседника, чем высокий или звонкий голос.\r\nГрамотность, знание языка и этикета общения — ваш кандидат должен обладать литературным языком без акцента, не употреблять в общении слов-паразитов, быть вежливым и внимательным к собеседнику.\r\nКоммуникабельность — такой оператор может найти подход к каждому клиенту, логично строит разговор, не отклоняясь от главной темы, дает понятные и четкие ответы.\r\nУмение контролировать эмоции, стрессоустойчивость — работник обязан в любой ситуации оставаться спокойным и вежливым, не повышать голос на собеседника, пытаться помочь и решить конфликт в стрессовой ситуации.\r\nОстроумие — умение быстро находить выход из сложных и непредвиденных ситуаций, предлагать несколько вариантов решения вопроса.",
+    "work_experience_from": 1,
+    "work_experience_to": 1,
+    "publication": true,
+    "updated_at": "2022-04-17T18:16:32.647Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 5,
+  "fields": {
+    "user": 5,
+    "vacancy_position": "Директор",
+    "category": "Marketing",
+    "salary": 1000000,
+    "description": "Руководить в соответствии с действующим законодательством производственно-хозяйственной и финансово-экономической деятельностью Компании, неся всю полноту ответственности за последствия принимаемых решений, сохранность и эффективное использование имущества Компании, а также финансово-хозяйственные результаты ее ..",
+    "work_experience_from": 5,
+    "work_experience_to": 10,
+    "publication": true,
+    "updated_at": "2022-04-17T18:17:36.838Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 6,
+  "fields": {
+    "user": 6,
+    "vacancy_position": "Оператор добычи нефти и газа",
+    "category": "Production",
+    "salary": 200000,
+    "description": "Ведение  технологического процесса при всех способах добычи газа, газового конденсата, закачки и отбора газа  и обеспечение бесперебойной  работы скважин, установок комплексной подготовки газа, групповых замерных установок, дожимных насосных и компрессорных станций, станций подземного хранение газа и другого технологического оборудования и установок.\r\n Монтаж, демонтаж, техническое обслуживание и ремонт наземного промыслового  оборудования ,установок, механизмов и коммуникаций.\r\n3.  Проведение профилактических работ против гидратообразований, отложений парафина, смол, солей и расчет реагентов для проведения этих работ. \r\n4. Измерение величин различных технологических параметров с помощью контрольно-измерительных приборов, снятие и передача параметров работы скважины, контроль за работой средств автоматики и телемеханики.",
+    "work_experience_from": 1,
+    "work_experience_to": 2,
+    "publication": true,
+    "updated_at": "2022-04-17T18:18:59.802Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 7,
+  "fields": {
+    "user": 6,
+    "vacancy_position": "Диспетчер",
+    "category": "Production",
+    "salary": 250000,
+    "description": "Занимается осуществлением с использованием средств вычислительной техники, коммуникаций и связи оперативное регулирование хода производства и других видов основной деятельности предприятия или его подразделений в соответствии с производственными программами, календарными планами и сменно-суточными заданиями.",
+    "work_experience_from": 0,
+    "work_experience_to": 1,
+    "publication": true,
+    "updated_at": "2022-04-17T18:19:44.573Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 8,
+  "fields": {
+    "user": 6,
+    "vacancy_position": "Технолог",
+    "category": "Production",
+    "salary": 350000,
+    "description": "Контролирует соблюдение технологической дисциплины в производственных подразделениях предприятия и правил эксплуатации оборудования. - Участвует в испытаниях технологического оборудования, в проведении экспериментальных работ по проверке и освоению проектируемых технологических процессов и режимов производства.",
+    "work_experience_from": 2,
+    "work_experience_to": 3,
+    "publication": true,
+    "updated_at": "2022-04-17T18:20:45.850Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 9,
+  "fields": {
+    "user": 6,
+    "vacancy_position": "Водитель",
+    "category": "Production",
+    "salary": 120000,
+    "description": "ІІ. Должностные обязанности водителя автомобиля\r\n\r\n2.1. В перечень рабочих функций водителя входит выполнение следующих задач:\r\n\r\nуправление автомобилем,\r\nсвоевременное прибытие на рабочее место и подача автомобиля к подъезду организации, а также постановка автомобиля в гараж после рабочей смены;\r\nсвоевременная заправка топливом, доливка масла, и добавление прочих жидкостей, нужных для работы автомобиля;\r\nследование правилам дорожного движения, соблюдение всех дорожных знаков, своевременное ознакомление со всеми изменениями, законодательно вносимыми в ПДД;\r\nобеспечение безопасности пассажиров во время нахождения за рулем и движения автомобиля;\r\nобеспечение сохранности имущества, находящегося в багажнике автомобиля;\r\nконтроль за сохранностью и целостностью самого автомобиля, в том числе оставление его на парковках и стоянках только с включенной сигнализацией, блокировка всех дверей и окон как во время движения, так и во время остановок;\r\nежедневный осмотр технического состояния автомобиля, своевременное устранение выявленных неисправностей собственными силами или при помощи специализированных автосервисов;\r\nсодержание автомобиля в чистоте и порядке, в том числе ежедневное утреннее мытье автомобиля на автомойке и еженедельная химчистка салона;\r\nзаблаговременная подготовка к дальним поездкам, ознакомление с картой местности и дорожными картами, выбор наиболее коротких маршрутов;\r\nисключение употребления любых лекарств, препаратов, продуктов и жидкостей, способных повлиять на работоспособность водителя, концентрацию внимания, координацию движений и реакцию;\r\nработа с маршрутными и путевыми листами, в том числе внесение сведений в документы по километражу, расходованию бензина и масла, пунктах назначения поездок и т.д., своевременное предоставление документации для отчетности;\r\nвыполнение распоряжений и поручений непосредственного руководителя.\r\nбережное отношение к вверенному автомобилю.",
+    "work_experience_from": 3,
+    "work_experience_to": 5,
+    "publication": true,
+    "updated_at": "2022-04-17T18:21:50.389Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 10,
+  "fields": {
+    "user": 6,
+    "vacancy_position": "Бурильщик",
+    "category": "Production",
+    "salary": 350000,
+    "description": "Контроль работы бригады КРС; контроль соблюдения правил безопасности на объекте, содержание инструментов и аппаратуры в сохранности\r\nПроведение ремонтных и профилактических работ на бурильной установке",
+    "work_experience_from": 1,
+    "work_experience_to": 2,
+    "publication": true,
+    "updated_at": "2022-04-17T18:22:39.782Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 11,
+  "fields": {
+    "user": 7,
+    "vacancy_position": "Middle Python Developer",
+    "category": "Information technology",
+    "salary": 250000,
+    "description": "Уверенное знание языка и библиотек Python.\r\nЗнание фреймворка Django или Flask/Pyramid/Tornado.\r\nБазовые знания HTML, CSS, JavaScript – для верстки страниц\r\nУмение работать с Git.",
+    "work_experience_from": 2,
+    "work_experience_to": 3,
+    "publication": true,
+    "updated_at": "2022-04-17T18:24:25.674Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 12,
+  "fields": {
+    "user": 7,
+    "vacancy_position": "Senior Python Developer",
+    "category": "Information technology",
+    "salary": 500000,
+    "description": "Опыт работы от 4 до 6 лет. Эксперт, способный разрабатывать сложные приложения на фреймворке. Его знания могут быть применены в архитектуре приложения, уровень оплаты намного выше, чем у начинающих. Руководит проектом или командой.",
+    "work_experience_from": 4,
+    "work_experience_to": 6,
+    "publication": true,
+    "updated_at": "2022-04-17T18:25:40.099Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 13,
+  "fields": {
+    "user": 7,
+    "vacancy_position": "Junior Python Developer",
+    "category": "Information technology",
+    "salary": 200000,
+    "description": "Основное требование — знание языка программирования Python. Но иногда на позицию Python-разработчика рассматривают специалистов с опытом в других популярных языках (например, C++, Java, Go).",
+    "work_experience_from": 0,
+    "work_experience_to": 1,
+    "publication": true,
+    "updated_at": "2022-04-17T18:26:43.907Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 14,
+  "fields": {
+    "user": 7,
+    "vacancy_position": "DevOPS-инженер",
+    "category": "Information technology",
+    "salary": 400000,
+    "description": "специалист, который синхронизирует этапы разработки программного продукта, знает, в чем заключается работа разработчиков, QA, менеджеров, и автоматизирует их задачи, умеет программировать и быстро изучает новые инструменты. Таких специалистов очень мало на рынке труда.",
+    "work_experience_from": 1,
+    "work_experience_to": 2,
+    "publication": true,
+    "updated_at": "2022-04-17T18:27:29.474Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 15,
+  "fields": {
+    "user": 7,
+    "vacancy_position": "javascript full stack developer",
+    "category": "Information technology",
+    "salary": 600000,
+    "description": "A full stack JavaScript developer is a person who can develop both client and server software. In addition to mastering HTML and CSS, he/she also knows how to: Program a browser (like using JavaScript, jQuery, Angular, or Vue) Program a server (like using Node.",
+    "work_experience_from": 3,
+    "work_experience_to": 5,
+    "publication": true,
+    "updated_at": "2022-04-17T18:28:21.930Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 16,
+  "fields": {
+    "user": 8,
+    "vacancy_position": "Мед брат",
+    "category": "Medicine",
+    "salary": 150000,
+    "description": "Выполняет различные диагностические и лечебные процедуры - измеряет температуру, делает перевязки, инъекции, прививки, помогает врачам при хирургических операциях и лечебных манипуляция, дает больным назначенные врачом лекарства, наблюдает за состоянием и самочувствием, делает массаж, обеспечивает всесторонний уход.",
+    "work_experience_from": 0,
+    "work_experience_to": 1,
+    "publication": true,
+    "updated_at": "2022-04-17T18:30:15.979Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 17,
+  "fields": {
+    "user": 8,
+    "vacancy_position": "Медсестра",
+    "category": "Medicine",
+    "salary": 150000,
+    "description": "Обязанность медсестры участковой — помогать участковому врачу на приёме больных, проживающих на закреплённом за ним участке, выполнять по назначению врача лечебные процедуры на дому и участвовать в проведении профилактических мероприятий.",
+    "work_experience_from": 0,
+    "work_experience_to": 1,
+    "publication": true,
+    "updated_at": "2022-04-17T18:30:59.152Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 18,
+  "fields": {
+    "user": 8,
+    "vacancy_position": "Врач ЛОР",
+    "category": "Medicine",
+    "salary": 250000,
+    "description": "В первом случае в обязанности доктора входит прием пациентов, разделение их на первичных и тех, кто уже был на приеме. Затем ЛОР проводит осмотр больных, отправляет их на анализы и консультации у других врачей, определяет диагноз и назначает лечение.",
+    "work_experience_from": 2,
+    "work_experience_to": 3,
+    "publication": true,
+    "updated_at": "2022-04-17T18:31:39.024Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 19,
+  "fields": {
+    "user": 8,
+    "vacancy_position": "Хирург",
+    "category": "Medicine",
+    "salary": 600000,
+    "description": "Экстренные и плановые операции. ...\r\nПослеоперационное наблюдение и реабилитация пациентов.\r\nКонсультативный прием с расшифровкой профильных анализов и результатов обследования.\r\nВедение медицинской документации: карты, больничные, документы на МСЭ, в военкомат.",
+    "work_experience_from": 4,
+    "work_experience_to": 7,
+    "publication": true,
+    "updated_at": "2022-04-17T18:32:15.105Z"
+  }
+},
+{
+  "model": "app.vacancy",
+  "pk": 20,
+  "fields": {
+    "user": 8,
+    "vacancy_position": "Травмотолог",
+    "category": "Medicine",
+    "salary": 500000,
+    "description": "Диагностика и лечение пациентов с заболеваниями опорно-двигательного аппарата и травмами. Репозиция отломков костной ткани, гипсование. Внутрисуставные инъекции. Операции на суставах и связках.",
+    "work_experience_from": 2,
+    "work_experience_to": 3,
+    "publication": true,
+    "updated_at": "2022-04-17T18:32:48.077Z"
+  }
+},
+{
+  "model": "app.response",
+  "pk": 1,
+  "fields": {
+    "applicant": 2,
+    "employer": 7,
+    "summary": 6,
+    "vacancy": 13
+  }
+},
+{
+  "model": "app.response",
+  "pk": 2,
+  "fields": {
+    "applicant": 1,
+    "employer": 8,
+    "summary": 1,
+    "vacancy": 19
+  }
+},
+{
+  "model": "app.response",
+  "pk": 3,
+  "fields": {
+    "applicant": 1,
+    "employer": 8,
+    "summary": 1,
+    "vacancy": 20
+  }
+},
+{
+  "model": "app.response",
+  "pk": 4,
+  "fields": {
+    "applicant": 4,
+    "employer": 8,
+    "summary": 17,
+    "vacancy": 20
+  }
+},
+{
+  "model": "app.response",
+  "pk": 5,
+  "fields": {
+    "applicant": 4,
+    "employer": 8,
+    "summary": 20,
+    "vacancy": 18
+  }
+},
+{
+  "model": "app.response",
+  "pk": 6,
+  "fields": {
+    "applicant": 2,
+    "employer": 8,
+    "summary": 9,
+    "vacancy": 18
+  }
+},
+{
+  "model": "app.message",
+  "pk": 1,
+  "fields": {
+    "user": 8,
+    "response": 5,
+    "text": "sadasd",
+    "created_at": "2022-04-17T19:17:27.730Z"
+  }
+}
+]
