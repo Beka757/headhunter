@@ -57,8 +57,25 @@
 
                             <a data-summary-id="{{ summary.pk }}" data-position="{{ summary.summary_position }}"
                                id="button_update" type="button" class="btn btn-secondary btn-sm">Обновить</a>
-                            <a type="button" href="{% url 'update_summary' summary.pk %}" class="btn btn-secondary btn-sm">Редактировать</a>
-
+                            <a type="button" href="{% url 'update_summary' summary.pk %}"
+                               class="btn btn-secondary btn-sm">Редактировать</a>
+                            {% if summary.publication == 1 %}
+                                <a style="display: none" data-summary-id="{{ summary.pk }}"
+                                   data-publication="{{ summary.publication }}"
+                                   id="publication_false" type="button"
+                                   class="btn btn-secondary btn-sm">Публиковать</a>
+                                <a data-summary-id="{{ summary.pk }}" data-publication="{{ summary.publication }}"
+                                   id="publication_true" type="button"
+                                   class="btn btn-secondary btn-sm">Убрать с публикации</a>
+                            {% else %}
+                                <a data-summary-id="{{ summary.pk }}" data-publication="{{ summary.publication }}"
+                                   id="publication_false" type="button"
+                                   class="btn btn-secondary btn-sm">Публиковать</a>
+                                <a style="display: none" data-summary-id="{{ summary.pk }}"
+                                   data-publication="{{ summary.publication }}"
+                                   id="publication_true" type="button"
+                                   class="btn btn-secondary btn-sm">Убрать с публикации</a>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>
@@ -99,4 +116,5 @@
         </div>
     </div>
     <script src="{% static 'js/update_summary.js' %}"></script>
+    <script src="{% static 'js/summary_publication.js' %}"></script>
 {% endblock %}

@@ -44,3 +44,15 @@ class MessageSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'response', 'text', 'created_at']
         read_only_fields = ['id', 'created_at']
 
+
+class VacancyPublicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vacancy
+        fields = ['publication']
+
+
+class SummaryPublicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Summary
+        fields = ['publication']
+
