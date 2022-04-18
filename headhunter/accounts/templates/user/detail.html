@@ -43,11 +43,6 @@
         {% if vacancies %}
             {% include 'partials/vacancy/list_vacancy_form.html' with title_text="Вакансии пользователя" %}
         {% endif %}
-        <div class="paginate mt-5">
-            {% if is_paginated %}
-                    {% include 'common/pagination.html' %}
-            {% endif %}
-        </div>
     </div>
 
     <div class="modal fade" id="UpdateUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

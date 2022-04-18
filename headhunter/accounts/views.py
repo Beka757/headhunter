@@ -27,8 +27,6 @@ class UserDetailsView(ListView):
     template_name = 'user/detail.html'
     context_object_name = 'summaries'
     ordering = ['-updated_at']
-    paginate_by = 20
-    paginate_orphans = 0
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
