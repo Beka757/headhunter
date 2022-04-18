@@ -1,5 +1,5 @@
 from django import forms
-from app.models import Summary, Vacancy, Response
+from app.models import Summary, Vacancy, Response, WorkExperience, Education
 
 
 class SummaryForm(forms.ModelForm):
@@ -17,5 +17,17 @@ class VacancyForm(forms.ModelForm):
 class ResponseForm(forms.ModelForm):
     class Meta:
         model = Response
+        exclude = []
+        
+        
+class WorkExperienceForm(forms.ModelForm):
+    class Meta:
+        model = WorkExperience
+        exclude = []
+
+
+class EducationForm(forms.ModelForm):
+    class Meta:
+        model = Education
         exclude = []
 

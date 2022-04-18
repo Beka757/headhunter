@@ -14,6 +14,89 @@
 				</form>
 			</div>
 		</div>
-	</div>
-	<script src="{% static 'js/resume_api_update_script.js' %}"></script>
+				<div class="mt-3 d-flex">
+					<div class="w-50 me-1">
+						{% if work_experiences %}
+							{% for work_experience in work_experiences %}
+							
+								<div>
+									<button class="btn btn-secondary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#workExperienceModal{{ work_experience.pk }}">{{ work_experience }}</button>
+									<div class="modal fade" id="workExperienceModal{{ work_experience.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Изменить опыт работы <br>{{ work_experience }}</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<div class="row">
+													<div class="d-flex justify-content-center">
+												
+														<form action="{% url 'update_work_experience' summary.pk work_experience.pk %}" enctype="multipart/form-data" method="post" class="w-100">
+															{% csrf_token %}
+															{% include 'partials/work_experience/update_form.html' %}
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+																<button type="submit" class="btn btn-success">Сохранить</button>
+															</div>
+														</form>
+												
+													</div>
+												</div>
+											</div>
+										</div>
+										</div>
+									</div>
+								</div>
+							
+							{% endfor %}
+						{% else %}
+
+							<p class="text-muted">Опыт работы отсуствует</p>
+			
+						{% endif %}
+					</div>
+					<div class="w-50 ms`-1">
+						{% if educations %}
+							{% for education in educations %}
+								
+								<div>
+									<button class="btn btn-secondary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#educationModal{{ education.pk }}">{{ education }}</button>
+									<div class="modal fade" id="educationModal{{ education.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Изменить образование <br>{{ education }}</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<div class="row">
+													<div class="d-flex justify-content-center">
+												
+														<form action="{% url 'update_education' summary.pk education.pk %}" enctype="multipart/form-data" method="post" class="w-100">
+															{% csrf_token %}
+															{% include 'partials/education/update_form.html' %}
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+																<button type="submit" class="btn btn-success">Сохранить</button>
+															</div>
+														</form>
+												
+													</div>
+												</div>
+											</div>
+										</div>
+										</div>
+									</div>
+								</div>
+							
+							{% endfor %}
+						{% else %}
+
+							<p class="text-muted">Образование отсуствует</p>
+
+						{% endif %}
+					</div>
+				</div>
+		</div>
 {% endblock %}

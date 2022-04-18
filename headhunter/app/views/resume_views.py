@@ -1,11 +1,11 @@
 from django.views.generic import CreateView, DetailView, ListView, TemplateView, UpdateView
 from django.urls import reverse
-from app.forms import SummaryForm
-from app.models import Summary, CATEGORY_VACANCY
+from app.forms import SummaryForm, WorkExperienceForm, EducationForm
+from app.models import Summary, CATEGORY_VACANCY, Education, WorkExperience
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.core.paginator import Paginator
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.db.models import Q
 
 
@@ -99,10 +99,36 @@ class UpdateSummaryView(UserPassesTestMixin, UpdateView):
     template_name = 'summary/update_summary.html'
     form_class = SummaryForm
     model = Summary
-    extra_context = {'categories': CATEGORY_VACANCY}
+    context_object_name = 'summary'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        context['categories'] = CATEGORY_VACANCY
+        context['work_experiences'] = self.get_object().work_experience.all()
+        context['educations'] = self.get_object().education.all()
+        
+        return context
 
     def test_func(self):
         return self.request.user == self.get_object().user
 
     def get_success_url(self):
         return reverse('detail_summary', kwargs={'pk': self.object.pk})
+    
+    
+class UpdateWorkExperienceView(UpdateView):
+    model = WorkExperience
+    form_class = WorkExperienceForm
+    
+    def get_success_url(self):
+        return reverse('update_summary', kwargs={'pk': self.kwargs['summary_pk']})
+
+
+class UpdateEducationView(UpdateView):
+    model = Education
+    form_class = EducationForm
+    
+    def get_success_url(self):
+        return reverse('update_summary', kwargs={'pk': self.kwargs['summary_pk']})
+

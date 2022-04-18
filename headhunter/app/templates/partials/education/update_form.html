@@ -1,0 +1,27 @@
+<div class="mb-3 d-none">
+    <input name="user" type="text" value="{{ education.user.pk }}"/>
+</div>
+<div class="mb-3">
+    <label for="educational_center" class="form-label">Образовательный центр</label> <span style="color: brown">*</span>
+    <input name="educational_center" type="text"
+           id="educational_center" class="form-control" value="{{ education.educational_center }}"/>
+    <div class="form-text text-danger education-text">{{ education_form.educational_center.errors }}</div>
+</div>
+<div class="mb-3">
+    <label for="speciality" class="form-label">Специальность</label> <span style="color: brown">*</span>
+    <input name="speciality" type="text"
+           id="speciality" class="form-control" value="{{ education.speciality }}"/>
+    <div class="form-text text-danger education-text">{{ education_form.speciality.errors }}</div>
+</div>
+<div class="mb-3">
+    <label for="start_education" class="form-label">Дата начала</label> <span style="color: brown">*</span>
+    <input name="start_education" type="date"
+           id="start_education" class="form-control" value="{{ education.start_education|date:'Y-m-d' }}"/>
+    <div class="form-text text-danger education-text">{{ education_form.start_education.errors }}</div>
+</div>
+<div class="mb-3">
+    <label for="finish_education" class="form-label">Дата окончания</label>
+    <input name="finish_education" type="date"
+           id="finish_education" class="form-control" value="{{ work_experience.finish_education|date:'Y-m-d' }}"/>
+    <div class="form-text text-danger education-text">{{ education_form.finish_education.errors }}</div>
+</div>

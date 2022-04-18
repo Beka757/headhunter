@@ -1,0 +1,32 @@
+<div class="mb-3 d-none">
+    <input name="user" type="text" value="{{ work_experience.user.pk }}"/>
+</div>
+<div class="mb-3">
+    <label for="company_name" class="form-label">Название компании</label> <span style="color: brown">*</span>
+    <input name="company_name" type="text"
+    id="company_name" class="form-control" value="{{ work_experience.company_name }}" />
+    <div class="form-text text-danger education-text">{{ work_experience_form.company_name.errors }}</div>
+</div>
+<div class="mb-3">
+    <label for="work_position" class="form-label">Должность</label> <span style="color: brown">*</span>
+    <input name="work_position" type="text"
+           id="work_position" class="form-control" value="{{ work_experience.work_position }}"/>
+    <div class="form-text text-danger education-text">{{ work_experience_form.work_position.errors }}</div>
+</div>
+<div class="mb-3">
+    <label for="responsibilities" class="form-label">Обязанности</label> <span style="color: brown">*</span>
+    <textarea name="responsibilities" class="form-control" id="responsibilities" rows="3">{{ work_experience.responsibilities }}</textarea>
+    <div class="form-text text-danger education-text">{{ work_experience_form.responsibilities.errors }}</div>
+</div>
+<div class="mb-3">
+    <label for="start_work" class="form-label">Дата начала</label> <span style="color: brown">*</span>
+    <input name="start_work" type="date"
+           id="start_work" class="form-control" value="{{ work_experience.start_work|date:'Y-m-d' }}"/>
+           <div class="form-text text-danger education-text">{{ work_experience_form.start_work.errors }}</div>
+</div>
+<div class="mb-3">
+    <label for="finish_work" class="form-label">Дата окончания</label>
+    <input name="finish_work" type="date"
+           id="finish_work" class="form-control" value="{{ work_experience.finish_work|date:'Y-m-d' }}"/>
+           <div class="form-text text-danger education-text">{{ work_experience_form.finish_work.errors }}</div>
+</div>
