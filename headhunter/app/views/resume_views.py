@@ -121,6 +121,15 @@ class UpdateWorkExperienceView(UpdateView):
     model = WorkExperience
     form_class = WorkExperienceForm
     
+    def post(self, request, *args, **kwargs):
+        form = WorkExperienceForm(data=request.POST)
+        
+        if form.is_valid():
+            form.save()
+            return redirect(self.get_success_url())
+        
+        return redirect(self.get_success_url())
+    
     def get_success_url(self):
         return reverse('update_summary', kwargs={'pk': self.kwargs['summary_pk']})
 
@@ -128,6 +137,15 @@ class UpdateWorkExperienceView(UpdateView):
 class UpdateEducationView(UpdateView):
     model = Education
     form_class = EducationForm
+    
+    def post(self, request, *args, **kwargs):
+        form = WorkExperienceForm(data=request.POST)
+        
+        if form.is_valid():
+            form.save()
+            return redirect(self.get_success_url())
+        
+        return redirect(self.get_success_url())
     
     def get_success_url(self):
         return reverse('update_summary', kwargs={'pk': self.kwargs['summary_pk']})
