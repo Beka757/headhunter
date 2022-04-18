@@ -11,9 +11,7 @@
             <div class="mb-3">
                 <label for="username" class="form-label">Имя пользователя <span style="color: red;">*</span></label>
                 <input name="username" type="text" id="username" class="form-control" value="{{ form.username.value }}">
-                <div class="invalid-feedback">
-                    {{ form.username.errors }}
-                </div>
+                <div class="form-text" style="color: red;">{{ form.image.errors }}</div>
             </div>
             
             <br>
